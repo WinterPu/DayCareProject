@@ -1,0 +1,20 @@
+stuId,age,graduateTime,isGrad,firstName,lastName,registerTime
+100001,53,,false,Jimmy,Tompson,09-26-2018 21:42:51
+100002,39,,false,Sally,George,09-16-2018 05:20:33
+100003,36,,false,Lizzy,Edwen,09-09-2018 00:17:45
+100004,35,,false,Markie,James,10-20-2018 12:17:45
+100005,44,,false,Johnny,Dep,10-15-2018 18:34:29
+100006,42,,false,Bobby,Higgins,10-24-2018 18:23:20
+100007,36,,false,Billy,Hill,10-19-2018 12:17:45
+100008,28,,false,Evie,Jane,09-21-2018 06:01:02
+100009,27,,false,Becky,Smith,10-06-2018 10:57:02
+100010,23,,false,Jessie,Christin,10-13-2018 19:55:27
+100011,18,,false,Jackie,Chan,10-19-2018 09:49:52
+100012,22,,false,Laurie,Florance,10-02-2018 02:52:40
+100013,17,,false,Cathey,Methew,09-23-2018 16:47:05
+100014,63,,false,Millie,Tompson,10-11-2018 16:47:05
+100015,16,,false,Ruthie,Jesus,09-13-2018 06:41:30
+100016,15,,false,Stanley,Mart,09-17-2018 05:53:30
+100017,12,,false,Mary,Mandery,10-02-2018 20:35:56
+100018,13,,false,Annie,Johns,09-12-2018 14:11:56
+100019,11,,false,Karlly,Karren,10-02-2018 20:35:56
