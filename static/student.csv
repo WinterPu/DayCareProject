@@ -1,20 +1,20 @@
-stuId,age,graduateTime,isGrad,firstName,lastName,registerTime
-100001,53,,false,Jimmy,Tompson,09-26-2018 21:42:51
-100002,39,,false,Sally,George,09-16-2018 05:20:33
-100003,36,,false,Lizzy,Edwen,09-09-2018 00:17:45
-100004,35,,false,Markie,James,10-20-2018 12:17:45
-100005,44,,false,Johnny,Dep,10-15-2018 18:34:29
-100006,42,,false,Bobby,Higgins,10-24-2018 18:23:20
-100007,36,,false,Billy,Hill,10-19-2018 12:17:45
-100008,28,,false,Evie,Jane,09-21-2018 06:01:02
-100009,27,,false,Becky,Smith,10-06-2018 10:57:02
-100010,23,,false,Jessie,Christin,10-13-2018 19:55:27
-100011,18,,false,Jackie,Chan,10-19-2018 09:49:52
-100012,22,,false,Laurie,Florance,10-02-2018 02:52:40
-100013,17,,false,Cathey,Methew,09-23-2018 16:47:05
-100014,63,,false,Millie,Tompson,10-11-2018 16:47:05
-100015,16,,false,Ruthie,Jesus,09-13-2018 06:41:30
-100016,15,,false,Stanley,Mart,09-17-2018 05:53:30
-100017,12,,false,Mary,Mandery,10-02-2018 20:35:56
-100018,13,,false,Annie,Johns,09-12-2018 14:11:56
-100019,11,,false,Karlly,Karren,10-02-2018 20:35:56
+stuId,firstName,lastName,age,lastName,motherName,immunizationTime,immunizationExpireTime
+100001,Jimmy,Tompson,53,Aron Tompson,Emma Tompson,082013,082017
+100002,Sally,George,39,Jacob George,Isabella George,102014,102018
+100003,Lizzy,Edwen,36,Ethan Edwen,Madison Edwen,012015,012019
+100004,Markie,James,35,Joshua James,Olivia James,022015,022019
+100005,Johnny,Dep,44,Alexander Dep,Mia Dep,052014,052018
+100006,Bobby,Higgins,42,Christopher Higgins,Elizabeth Higgins,072014,072018
+100007,Billy,Hill,16,Jayden Hill,Addison Hill,092016,092020
+100008,Evie,Jane,28,Ryan Jane,Alyssa Jane,092015,092019
+100009,Becky,Smith,27,John Smith,Hannah Smith,102015,102019
+100010,Jessie,Christin,23,Logan Christin,Alexis Christin,022016,022020
+100011,Jackie,Chan,18,Elijah Chan,Alyssa Chan,072016,072020
+100012,Laurie,Florance,22,Jonathan Florance,Ashley Florance,032016,032020
+100013,Cathey,Methew,17,Samuel Methew,Ella Methew,082016,082020
+100014,Millie,Tompson,63,Jack Tompson,Sarah Tompson,102012,102016
+100015,Ruthie,Jesus,16,William Jesus,Taylor Jesus,092016,092020
+100016,Stanley,Mart,15,James Mart,Grace Mart,102016,102020
+100017,Mary,Mandery,12,Tyler Mandery,Lily Mandery,012017,012021
+100018,Annie,Johns,63,Luke Johns,Kylie Johns,102012,102016
+100019,Karlly,Karren,11,Connor Karren,Brooke Karren,022017,022021
