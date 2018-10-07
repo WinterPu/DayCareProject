@@ -1,20 +1,20 @@
-stuId,firstName,lastName,age,lastName,motherName,immunizationTime,immunizationExpireTime
-100001,Jimmy,Tompson,53,Aron Tompson,Emma Tompson,082013,082017
+stuId,firstName,lastName,age,fatherName,motherName,immunizationTime,immunizationExpireTime
+100001,Jimmy,Tompson,53,Aron Tompson,Emma Tompson,82013,82017
 100002,Sally,George,39,Jacob George,Isabella George,102014,102018
-100003,Lizzy,Edwen,36,Ethan Edwen,Madison Edwen,012015,012019
-100004,Markie,James,35,Joshua James,Olivia James,022015,022019
-100005,Johnny,Dep,44,Alexander Dep,Mia Dep,052014,052018
-100006,Bobby,Higgins,42,Christopher Higgins,Elizabeth Higgins,072014,072018
-100007,Billy,Hill,16,Jayden Hill,Addison Hill,092016,092020
-100008,Evie,Jane,28,Ryan Jane,Alyssa Jane,092015,092019
+100003,Lizzy,Edwen,36,Ethan Edwen,Madison Edwen,12015,12019
+100004,Markie,James,35,Joshua James,Olivia James,22015,22019
+100005,Johnny,Dep,44,Alexander Dep,Mia Dep,52014,52018
+100006,Bobby,Higgins,42,Christopher Higgins,Elizabeth Higgins,72014,72018
+100007,Billy,Hill,16,Jayden Hill,Addison Hill,92016,92020
+100008,Evie,Jane,28,Ryan Jane,Alyssa Jane,92015,92019
 100009,Becky,Smith,27,John Smith,Hannah Smith,102015,102019
-100010,Jessie,Christin,23,Logan Christin,Alexis Christin,022016,022020
-100011,Jackie,Chan,18,Elijah Chan,Alyssa Chan,072016,072020
-100012,Laurie,Florance,22,Jonathan Florance,Ashley Florance,032016,032020
-100013,Cathey,Methew,17,Samuel Methew,Ella Methew,082016,082020
+100010,Jessie,Christin,23,Logan Christin,Alexis Christin,22016,22020
+100011,Jackie,Chan,18,Elijah Chan,Alyssa Chan,72016,72020
+100012,Laurie,Florance,22,Jonathan Florance,Ashley Florance,32016,32020
+100013,Cathey,Methew,17,Samuel Methew,Ella Methew,82016,82020
 100014,Millie,Tompson,63,Jack Tompson,Sarah Tompson,102012,102016
-100015,Ruthie,Jesus,16,William Jesus,Taylor Jesus,092016,092020
+100015,Ruthie,Jesus,16,William Jesus,Taylor Jesus,92016,92020
 100016,Stanley,Mart,15,James Mart,Grace Mart,102016,102020
-100017,Mary,Mandery,12,Tyler Mandery,Lily Mandery,012017,012021
+100017,Mary,Mandery,12,Tyler Mandery,Lily Mandery,12017,12021
 100018,Annie,Johns,63,Luke Johns,Kylie Johns,102012,102016
-100019,Karlly,Karren,11,Connor Karren,Brooke Karren,022017,022021
+100019,Karlly,Karren,11,Connor Karren,Brooke Karren,22017,22021
