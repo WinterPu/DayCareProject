@@ -111,7 +111,15 @@ public class FileIO<T> {
 	}
 	
 	public static boolean isFileEmpty(String dataType) {
-		try (FileReader fr = new FileReader(new File(PropertiesReader.getFilePath(dataType)))) {
+		File file = new File(PropertiesReader.getFilePath(dataType));
+		if(!file.exists())
+			try {
+				file.createNewFile();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		try (FileReader fr = new FileReader(file)) {
 			return fr.read()==-1;
 		} catch (IOException e) {
 			e.printStackTrace();

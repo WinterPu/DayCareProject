@@ -10,9 +10,6 @@ import neu.edu.csye6200.team.util.FileIO;
 
 public class StudentDataManagement implements DataManagement<Student> {
 
-	static {
-		initialize();
-	}
 	/**
 	 * General search
 	 */
@@ -94,32 +91,32 @@ public class StudentDataManagement implements DataManagement<Student> {
 	/**
 	 * This method generate the basic data only if there is no data.
 	 */
-	private static void initialize() {
+//	private static void initialize() {
 		// TODO Auto-generated method stub
-		if(FileIO.isFileEmpty("student")) {
-			List<Student> stus = new ArrayList<>();
-			stus.add(new Student(100001, "Jimmy", "Tompson", new Date(System.currentTimeMillis()-4*300*24*60*60*1000), 53));
-			stus.add(new Student(100002, "Sally", "George", new Date(System.currentTimeMillis()-3*271*24*60*60*1000), 39));
-			stus.add(new Student(100003, "Lizzy", "Edwen", new Date(System.currentTimeMillis()-3*268*23*60*60*1000), 36));
-			stus.add(new Student(100004, "Markie", "James", new Date(System.currentTimeMillis()-3*243*24*60*60*1000), 35));
-			stus.add(new Student(100005, "Johnny", "Dep", new Date(System.currentTimeMillis()-3*344*24*60*60*1000), 44));
-			stus.add(new Student(100006, "Bobby", "Higgins", new Date(System.currentTimeMillis()-2*430*23*60*60*1000), 42));
-			stus.add(new Student(100007, "Billy", "Hill", new Date(System.currentTimeMillis()-2*365*24*60*60*1000), 36));
-			stus.add(new Student(100008, "Evie", "Jane", new Date(System.currentTimeMillis()-2*230*24*60*60*1000), 28));
-			stus.add(new Student(100009, "Becky", "Smith", new Date(System.currentTimeMillis()-2*230*24*59*59*1000), 27));
-			stus.add(new Student(100010, "Jessie", "Christin", new Date(System.currentTimeMillis()-2*169*24*60*60*1000), 23));
-			stus.add(new Student(100011, "Jackie", "Chan", new Date(System.currentTimeMillis()-233*24*60*60*1000), 18));
-			stus.add(new Student(100012, "Laurie", "Florance", new Date(System.currentTimeMillis()-300*24*60*60*1000), 22));
-			stus.add(new Student(100013, "Cathey", "Methew", new Date(System.currentTimeMillis()-209*24*60*60*1000), 17));
-			stus.add(new Student(100014, "Millie", "Tompson", new Date(System.currentTimeMillis()-191*24*60*60*1000), 63));
-			stus.add(new Student(100015, "Ruthie", "Jesus", new Date(System.currentTimeMillis()-120*24*60*60*1000), 16));
-			stus.add(new Student(100016, "Stanley", "Mart", new Date(System.currentTimeMillis()-120*24*59*59*1000), 15));
-			stus.add(new Student(100017, "Mary", "Mandery", new Date(System.currentTimeMillis()-24*60*60*1000), 12));
-			stus.add(new Student(100018, "Annie", "Johns", new Date(System.currentTimeMillis()-22*24*58*60*1000), 13));
-			stus.add(new Student(100019, "Karlly", "Karren", new Date(System.currentTimeMillis()-24*60*60*1000), 11));
-			FileIO.writeFile(stus, Student.class, "student");
-		}
-	}
+//		if(FileIO.isFileEmpty("student")) {
+//			List<Student> stus = new ArrayList<>();
+//			stus.add(new Student(100001, "Jimmy", "Tompson", new Date(System.currentTimeMillis()-4*300*24*60*60*1000), 53));
+//			stus.add(new Student(100002, "Sally", "George", new Date(System.currentTimeMillis()-3*271*24*60*60*1000), 39));
+//			stus.add(new Student(100003, "Lizzy", "Edwen", new Date(System.currentTimeMillis()-3*268*23*60*60*1000), 36));
+//			stus.add(new Student(100004, "Markie", "James", new Date(System.currentTimeMillis()-3*243*24*60*60*1000), 35));
+//			stus.add(new Student(100005, "Johnny", "Dep", new Date(System.currentTimeMillis()-3*344*24*60*60*1000), 44));
+//			stus.add(new Student(100006, "Bobby", "Higgins", new Date(System.currentTimeMillis()-2*430*23*60*60*1000), 42));
+//			stus.add(new Student(100007, "Billy", "Hill", new Date(System.currentTimeMillis()-2*365*24*60*60*1000), 36));
+//			stus.add(new Student(100008, "Evie", "Jane", new Date(System.currentTimeMillis()-2*230*24*60*60*1000), 28));
+//			stus.add(new Student(100009, "Becky", "Smith", new Date(System.currentTimeMillis()-2*230*24*59*59*1000), 27));
+//			stus.add(new Student(100010, "Jessie", "Christin", new Date(System.currentTimeMillis()-2*169*24*60*60*1000), 23));
+//			stus.add(new Student(100011, "Jackie", "Chan", new Date(System.currentTimeMillis()-233*24*60*60*1000), 18));
+//			stus.add(new Student(100012, "Laurie", "Florance", new Date(System.currentTimeMillis()-300*24*60*60*1000), 22));
+//			stus.add(new Student(100013, "Cathey", "Methew", new Date(System.currentTimeMillis()-209*24*60*60*1000), 17));
+//			stus.add(new Student(100014, "Millie", "Tompson", new Date(System.currentTimeMillis()-191*24*60*60*1000), 63));
+//			stus.add(new Student(100015, "Ruthie", "Jesus", new Date(System.currentTimeMillis()-120*24*60*60*1000), 16));
+//			stus.add(new Student(100016, "Stanley", "Mart", new Date(System.currentTimeMillis()-120*24*59*59*1000), 15));
+//			stus.add(new Student(100017, "Mary", "Mandery", new Date(System.currentTimeMillis()-24*60*60*1000), 12));
+//			stus.add(new Student(100018, "Annie", "Johns", new Date(System.currentTimeMillis()-22*24*58*60*1000), 13));
+//			stus.add(new Student(100019, "Karlly", "Karren", new Date(System.currentTimeMillis()-24*60*60*1000), 11));
+//			FileIO.writeFile(stus, Student.class, "student");
+//		}
+//	}
 
 
 }

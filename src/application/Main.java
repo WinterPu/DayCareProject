@@ -8,8 +8,10 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import neu.edu.csye6200.team.data.ImmuDataManagement;
 import neu.edu.csye6200.team.data.StudentDataManagement;
 import neu.edu.csye6200.team.interfaces.DataManagement;
+import neu.edu.csye6200.team.objects.Immunization;
 import neu.edu.csye6200.team.objects.Student;
 
 
@@ -28,9 +30,11 @@ public class Main extends Application {
 	}
 	
 	public static void main(String[] args) throws FileNotFoundException, IOException {
-		DataManagement<Student> dm = new StudentDataManagement();
-		System.out.println(dm.getDataList());
-		dm.deleteOneObject(new Student(100020, "A", "B", new Date(), 30));
+//		DataManagement<Student> dm = new StudentDataManagement();
+//		System.out.println(dm.getDataList());
+//		dm.deleteOneObject(new Student(100020, "A", "B", new Date(), 30));
+		DataManagement<Immunization> dm = new ImmuDataManagement();
+		System.out.println(dm.getDataList(100010));
 		launch(args);
 	}
 }
