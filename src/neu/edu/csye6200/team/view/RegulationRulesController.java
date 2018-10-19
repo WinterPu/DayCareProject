@@ -50,6 +50,12 @@ public class RegulationRulesController {
 
     public void setMain(Main main) {
         this.main = main;
+        main.getRuleDate().add(new Rules("6","12","4","4:1","3"));
+        main.getRuleDate().add(new Rules("13","24","5","5:1","3"));
+        main.getRuleDate().add(new Rules("25","35","6","6:1","3"));
+        main.getRuleDate().add(new Rules("36","47","8","8:1","3"));
+        main.getRuleDate().add(new Rules("48","59","12","12:1","2"));
+        main.getRuleDate().add(new Rules("60","on up","15","15:1","2"));
         personTable.setItems(main.getRuleDate());
     }
     

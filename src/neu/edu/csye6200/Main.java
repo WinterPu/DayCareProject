@@ -26,15 +26,6 @@ public class Main extends Application {
 	private Stage primaryStage;
 	private ObservableList<Rules> ruleDate = FXCollections.observableArrayList();
 	
-	public Main() {
-		ruleDate.add(new Rules("6","12","4","4:1","3"));
-		ruleDate.add(new Rules("13","24","5","5:1","3"));
-		ruleDate.add(new Rules("25","35","6","6:1","3"));
-		ruleDate.add(new Rules("36","47","8","8:1","3"));
-		ruleDate.add(new Rules("48","59","12","12:1","2"));
-		ruleDate.add(new Rules("60","on up","15","15:1","2"));
-	}
-	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
