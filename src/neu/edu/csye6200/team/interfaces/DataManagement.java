@@ -18,9 +18,6 @@ public interface DataManagement<T> {
 	public List<T> getDataList(String key);
 	//This is the method using primary key search
 	public List<T> getDataList(int key);
-	//Conditional search
-	public List<T> getDataList(int min, int max);
-	public List<T> getDataList(String min, String max);
 	
 	//These methods are safe. If the object you operate on doesn't actually exists in the data file, nothing will happens.
 	public void registerOneObject(T t);

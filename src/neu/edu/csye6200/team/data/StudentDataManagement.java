@@ -35,7 +35,6 @@ public class StudentDataManagement implements DataManagement<Student> {
 	/**
 	 * Search for students that ages are between minimum value and maximum value. Notice, I use >= and <=
 	 */
-	@Override
 	public List<Student> getDataList(int min, int max) {
 		// TODO Auto-generated method stub
 		List<Student> stus = new ArrayList<>();
@@ -43,7 +42,6 @@ public class StudentDataManagement implements DataManagement<Student> {
 		return stus;
 	}
 
-	@Override
 	public List<Student> getDataList(String min, String max) {
 		// TODO Auto-generated method stub
 		List<Student> stus = new ArrayList<>();

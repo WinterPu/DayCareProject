@@ -43,18 +43,6 @@ public class ImmuDataManagement implements DataManagement<Immunization> {
 	}
 
 	@Override
-	public List<Immunization> getDataList(int min, int max) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Immunization> getDataList(String min, String max) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public void registerOneObject(Immunization t) {
 		// TODO Auto-generated method stub
 		FileIO.writeFileAppended(Arrays.asList(t), "stuImm");
