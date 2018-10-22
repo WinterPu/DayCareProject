@@ -7,6 +7,7 @@ public class Student extends Person implements Comparable<Student>{
 
 	private int stuId;//primary key for student, automatically increased by 1, start from 100001, cannot be set manually
 	private int age;//monthly age
+	private Date registerDate;
 	private String fatherName;
 	private String motherName;
 	private List<Immunization> immunizations;
@@ -59,13 +60,19 @@ public class Student extends Person implements Comparable<Student>{
 	}
 	@Override
 	public String toString() {
-		return stuId + "," + firstName + "," + lastName + "," + age + "," + fatherName + "," + motherName + "\n";
+		return stuId + "," + registerDate + "," + firstName + "," + lastName + "," + age + "," + fatherName + "," + motherName + "\n";
 	}
 
 	@Override
 	public int compareTo(Student stu) {
 		// TODO Auto-generated method stub
 		return Integer.valueOf(stuId).compareTo(stu.stuId);
+	}
+	public Date getRegisterDate() {
+		return registerDate;
+	}
+	public void setRegisterDate(Date registerDate) {
+		this.registerDate = registerDate;
 	}
 	
 }
