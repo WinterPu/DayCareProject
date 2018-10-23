@@ -5,6 +5,7 @@ import java.io.InputStream;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import neu.edu.csye6200.team.controller.ImmunizationCheckController;
+import neu.edu.csye6200.team.controller.StudentEnterController;
 import neu.edu.csye6200.team.controller.ViewStudentController;
 import neu.edu.csye6200.team.objects.Student;
 import javafx.scene.Scene;
@@ -13,7 +14,11 @@ import javafx.scene.layout.BorderPane;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.JavaFXBuilderFactory;
 
-
+/**
+ * 
+ * @author Qianru
+ * Main Class controlling interface switching
+ */
 public class Main extends Application {
 	private Stage stage; 
 	private Student student;
@@ -22,15 +27,39 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			stage = primaryStage;
-			goViewStudent();
+			goStudentEnter();
+			//goViewStudent();
 			stage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public void goViewStudent() throws Exception {
+	public void goStudentEnter() throws Exception{
 		// TODO Auto-generated method stub
+		FXMLLoader loader = new FXMLLoader();  
+		String path = "/FXML/StudentEnter.fxml";
+		InputStream in = Main.class.getResourceAsStream(path);  
+        loader.setBuilderFactory(new JavaFXBuilderFactory());  
+        loader.setLocation(Main.class.getResource(path));  
+		StudentEnterController econtroller;
+		AnchorPane root;
+		try {  
+            root = (AnchorPane) loader.load(in);  
+        } finally {  
+            in.close();  
+        }   
+		Scene scene = new Scene(root,700,600);
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		stage.setScene(scene);
+		econtroller = loader.getController();
+		System.out.println(econtroller);
+		econtroller.setApp(this);
+	}
+
+	public void goViewStudent(Student stu) throws Exception {
+		// TODO Auto-generated method stub
+		ViewStudentController.student = stu;
 		FXMLLoader loader = new FXMLLoader();  
 		String path = "/FXML/ViewStudentInformation.fxml";
 		InputStream in = Main.class.getResourceAsStream(path);  

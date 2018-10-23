@@ -15,6 +15,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -24,6 +25,11 @@ import neu.edu.csye6200.team.objects.ImmunList;
 import neu.edu.csye6200.team.objects.Immunization;
 import neu.edu.csye6200.team.objects.Student;
 
+/**
+ * 
+ * @author Qianru
+ * The class contains operations in Immunization Check interface
+ */
 public class ImmunizationCheckController implements Initializable {
 
 	private Main application;
@@ -66,9 +72,7 @@ public class ImmunizationCheckController implements Initializable {
 		
 		idm = new ImmuDataManagement();
 		System.out.println(student+"    when initial");
-		System.out.println(student.getStuId());
 		immList = (ArrayList)idm.getDataList(student.getStuId());
-		System.out.println(immList);
 		List<ImmunList> dataImmlist = new ArrayList<ImmunList>();
 		for(Immunization immun : immList) {
 			String id = String.valueOf(immun.getImmuId());
@@ -85,8 +89,9 @@ public class ImmunizationCheckController implements Initializable {
 		    int timeLeft = daydur - timePast;
 		    if(timeLeft<0) {
 		    	stat = "Out Of Date";
+		    	
 		    }
-		    else if(timeLeft>=0 && timeLeft<90) {
+		    else if(timeLeft>=0 && timeLeft<360) {
 		    	stat = "Warning";
 		    }
 		    else {
@@ -99,12 +104,11 @@ public class ImmunizationCheckController implements Initializable {
 			imm.setStatus(stat);
 			dataImmlist.add(imm);
 			
-			//data.add(immun);
 		}
 		data.addAll(dataImmlist);
-		System.out.println(data);
-		
 		immTable.setItems(data);
+		
+		
 	}
 	
 	private int daysPast(Date date1, Date date2) {
@@ -122,19 +126,28 @@ public class ImmunizationCheckController implements Initializable {
 	}
 
 	
-	public Date toDate(String source, String date) {
-		DateFormat simpleDateFormat = new SimpleDateFormat(date);
-		Date d = null;
-		try {
-			d = simpleDateFormat.parse(source);
-		} catch (Exception e) {
-			
-        }
-        return d;
+	public void checkImmun(ActionEvent event) {
+		int index = immTable.getSelectionModel().getFocusedIndex();
+		Immunization selimm = immList.get(index);
+		String stuid = String.valueOf(selimm.getStuId());
+		String stuname = student.firstName +" "+ student.lastName;
+		String imid = String.valueOf(selimm.getImmuId());
+		String imname = selimm.getImmuName();
+		Date imdate = selimm.getImmuDate();
+		DateFormat df = new SimpleDateFormat("MM-dd-yyyy");
+	    String idate = df.format(imdate);
+	    String duration = String.valueOf(selimm.getDuration());
+	    
+	    txtStuid.setText(stuid);
+		txtStuname.setText(stuname);
+		txtImmname.setText(imname);
+		txtImmid.setText(imid);
+		txtImmdate.setText(idate);
+		txtDuration.setText(duration);
 	}
 	
-	public void checkImmun(ActionEvent event) {
-		System.out.println("CheckImmun Button Clicked");
+	public void back(ActionEvent event) throws Exception {
+        application.goStudentEnter();
 	}
 	
 }

@@ -23,6 +23,11 @@ import javafx.stage.Stage;
 import neu.edu.csye6200.team.data.StudentDataManagement;
 import neu.edu.csye6200.team.objects.Student;
 
+/**
+ * 
+ * @author Qianru
+ * The class contains operations in View Student Information Interface
+ */
 public class ViewStudentController implements Initializable {
 	private Main application;
 	private Button btnBack;
@@ -42,13 +47,10 @@ public class ViewStudentController implements Initializable {
 	@FXML
 	private TextField txtRegister = new TextField();
 	
-	StudentDataManagement sdm;
-	List<Student> stuList;
-	Student student;
+	public static Student student;
 	
 	public void setApp(Main app) {
 		this.application = app;
-		System.out.println(application);
 	}
 	
 	@Override
@@ -56,11 +58,7 @@ public class ViewStudentController implements Initializable {
 
 	       // TODO (don't really need to do anything here).
 
-		sdm = new StudentDataManagement();
-		stuList = sdm.getDataList();
-		student = stuList.get(2);
 		String strstudent = String.valueOf(student);
-		
 		String[] fields = strstudent.split(",");
 		String id = fields[0];
 		String firname = fields[1];
@@ -89,9 +87,9 @@ public class ViewStudentController implements Initializable {
 		txtRegister.setText(registime);
 	}
 	
-	public void back(ActionEvent event) {
+	public void back(ActionEvent event) throws Exception {
 	    System.out.println("Back Successfully");
-
+        application.goStudentEnter();
 	}
 	
 	@FXML
