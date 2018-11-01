@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="588.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="neu.edu.csye6200.team.controller.UpdateImmunizationController">
+   <children>
+      <ComboBox fx:id="cbImmname" layoutX="61.0" layoutY="125.0" prefWidth="150.0" />
+      <Button fx:id="btnUpdate" layoutX="260.0" layoutY="125.0" mnemonicParsing="false" onAction="#update" prefHeight="23.0" prefWidth="111.0" text="Update" />
+      <Button fx:id="btnAdd" layoutX="410.0" layoutY="125.0" mnemonicParsing="false" onAction="#addImmun" prefHeight="23.0" prefWidth="169.0" text="Add new Immun Record" />
+      <Label fx:id="lbStuid" layoutX="367.0" layoutY="28.0" prefHeight="29.0" prefWidth="214.0" text="Student ID: " />
+      <Label layoutX="75.0" layoutY="272.0" prefHeight="29.0" prefWidth="122.0" text="Immun ID: " />
+      <Label layoutX="75.0" layoutY="335.0" prefHeight="29.0" prefWidth="122.0" text="Immun Name: " />
+      <Label layoutX="75.0" layoutY="406.0" prefHeight="29.0" prefWidth="122.0" text="Duration: " />
+      <TextField fx:id="txtID" layoutX="235.0" layoutY="275.0" />
+      <TextField fx:id="txtName" layoutX="235.0" layoutY="338.0" />
+      <TextField fx:id="txtDuration" layoutX="235.0" layoutY="409.0" />
+      <Button fx:id="btnApply" layoutX="396.0" layoutY="498.0" mnemonicParsing="false" onAction="#apply" prefHeight="23.0" prefWidth="161.0" text="Apply Today" />
+      <Button fx:id="btnBack" layoutX="39.0" layoutY="31.0" mnemonicParsing="false" onAction="#back" prefHeight="23.0" prefWidth="122.0" text="&lt;&lt;Back" />
+   </children>
+</AnchorPane>

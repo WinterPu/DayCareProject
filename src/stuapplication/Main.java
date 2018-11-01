@@ -6,6 +6,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import neu.edu.csye6200.team.controller.ImmunizationCheckController;
 import neu.edu.csye6200.team.controller.StudentEnterController;
+import neu.edu.csye6200.team.controller.UpdateImmunizationController;
 import neu.edu.csye6200.team.controller.ViewStudentController;
 import neu.edu.csye6200.team.objects.Student;
 import javafx.scene.Scene;
@@ -101,6 +102,33 @@ public class Main extends Application {
 		stage.setScene(scene);
 		imcontroller = loader.getController();
 		imcontroller.setApp(this);
+		//System.out.println(student+"    Main, before");
+		//imcontroller.setStudent(student);
+		//System.out.println(student+"    Main, after");
+		stage.show();
+	}
+	
+	public void goUpdate(Student stu) throws Exception {
+		// TODO Auto-generated method stub
+		System.out.println("Pass success");
+		UpdateImmunizationController.student = stu;
+		FXMLLoader loader = new FXMLLoader();  
+		String path = "/FXML/UpdateImmunizations.fxml";
+		InputStream in = Main.class.getResourceAsStream(path);  
+        loader.setBuilderFactory(new JavaFXBuilderFactory());  
+        loader.setLocation(Main.class.getResource(path));  
+		UpdateImmunizationController upcontroller;
+		AnchorPane root;
+		try {  
+            root = (AnchorPane) loader.load(in);  
+        } finally {  
+            in.close();  
+        }   
+		Scene scene = new Scene(root,700,600);
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		stage.setScene(scene);
+		upcontroller = loader.getController();
+		upcontroller.setApp(this);
 		//System.out.println(student+"    Main, before");
 		//imcontroller.setStudent(student);
 		//System.out.println(student+"    Main, after");
