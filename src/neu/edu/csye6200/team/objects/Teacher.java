@@ -2,7 +2,7 @@ package neu.edu.csye6200.team.objects;
 
 import java.util.Date;
 
-import neu.edu.csye6200.main.PropertiesReader;
+import neu.edu.csye6200.team.util.PropertiesReader;
 
 public class Teacher extends Person implements Comparable<Teacher> {
 

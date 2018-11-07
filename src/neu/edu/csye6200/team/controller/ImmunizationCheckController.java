@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import application.Main;
+import neu.edu.csye6200.main.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -30,7 +30,7 @@ import neu.edu.csye6200.team.objects.Student;
  * @author Qianru
  * The class contains operations in Immunization Check interface
  */
-public class ImmunizationCheckController implements Initializable {
+public class ImmunizationCheckController extends AbstractController implements Initializable {
 
 	private Main application;
 	public static Student student;
@@ -147,7 +147,7 @@ public class ImmunizationCheckController implements Initializable {
 	}
 	
 	public void back(ActionEvent event) throws Exception {
-        application.goStudentEnter();
+		application.loadStudentInput();
 	}
 	
 }

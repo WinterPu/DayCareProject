@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import application.Main;
+import neu.edu.csye6200.main.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,7 +28,7 @@ import neu.edu.csye6200.team.objects.Student;
  * @author Qianru
  * The class contains operations in View Student Information Interface
  */
-public class ViewStudentController implements Initializable {
+public class ViewStudentController extends AbstractController implements Initializable {
 	private Main application;
 	private Button btnBack;
 	private Button btnCheckimmun;
@@ -89,13 +89,15 @@ public class ViewStudentController implements Initializable {
 	
 	public void back(ActionEvent event) throws Exception {
 	    System.out.println("Back Successfully");
-        application.goStudentEnter();
+	    application.loadStudentInput();
 	}
 	
 	@FXML
 	public void checkImmuns(ActionEvent event) throws Exception {
 		System.out.println("Go To Immunization Interface");
-		application.goImmunization(student);
+		
+		ImmunizationCheckController.student = student;
+		application.loadImmunizationView();
     }  
 	
 }

@@ -1,16 +1,16 @@
-package neu.edu.csye6200.team.view;
+package neu.edu.csye6200.team.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
-import neu.edu.csye6200.Main;
+import neu.edu.csye6200.main.*;
 import neu.edu.csye6200.team.objects.Rules;
 /**
  * Dialog to edit details of a person.
  * 
  * @author Marco Jakob
  */
-public class RegulationRulesController {
+public class RegulationRulesController extends AbstractController{
 
 	@FXML
     private TableView<Rules> personTable;
@@ -48,7 +48,8 @@ public class RegulationRulesController {
         this.dialogStage = dialogStage;
     }
 
-    public void setMain(Main main) {
+    @Override
+    public void setApp(Main main) {
         this.main = main;
         main.getRuleDate().add(new Rules("6","12","4","4:1","3"));
         main.getRuleDate().add(new Rules("13","24","5","5:1","3"));

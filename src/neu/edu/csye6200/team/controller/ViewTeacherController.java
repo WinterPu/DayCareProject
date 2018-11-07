@@ -1,7 +1,8 @@
 package neu.edu.csye6200.team.controller;
 
 import com.jfoenix.controls.JFXButton;
-import application.MainTestTeacher;
+
+import neu.edu.csye6200.main.*;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -13,7 +14,7 @@ import javafx.scene.control.TableView;
 import neu.edu.csye6200.team.objects.Student;
 import neu.edu.csye6200.team.objects.Teacher;
 
-public class ViewTeacherController {
+public class ViewTeacherController extends AbstractController {
 	
 	@FXML
 	private JFXButton studentButton;
@@ -73,7 +74,7 @@ public class ViewTeacherController {
 	@FXML
 	private TableColumn<Student, String> stuAge;
 	
-	private MainTestTeacher main;
+	private Main main;
 	
 	public ViewTeacherController() {
 		
@@ -128,8 +129,8 @@ public class ViewTeacherController {
 		return;
 	}
 	
-	
-	public void setMain(MainTestTeacher mainTestTeacher) {
+	@Override
+	public void setApp(Main mainTestTeacher) {
         this.main = mainTestTeacher;
 
         // Add observable list data to the table

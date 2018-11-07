@@ -4,7 +4,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import application.Main;
+import neu.edu.csye6200.main.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -20,7 +20,7 @@ import neu.edu.csye6200.team.objects.Student;
  * @author Qianru
  * The class contains operations in Student Entrance Interface
  */
-public class StudentEnterController implements Initializable {
+public class StudentEnterController extends AbstractController implements Initializable {
 
 	private Main application;
 	StudentDataManagement sdm;
@@ -30,8 +30,8 @@ public class StudentEnterController implements Initializable {
 	private TextField txtID = new TextField();
 	
 	
-	public void setApp(Main app) {
-		this.application = app;
+	public void setApp(Main main) {
+		this.application = main;
 	}
 	
 	@Override
@@ -70,6 +70,8 @@ public class StudentEnterController implements Initializable {
 			});
 			return;
 		}
-		application.goViewStudent(student);
+		
+		ViewStudentController.student = student;
+		application.loadStudentView();
 	}
 }

@@ -2,7 +2,7 @@ package neu.edu.csye6200.team.objects;
 
 import java.util.Date;
 
-import neu.edu.csye6200.main.PropertiesReader;
+import neu.edu.csye6200.team.util.PropertiesReader;
 
 /**
  * Immunization Object Class. This class only contains the basic information of Immunization
