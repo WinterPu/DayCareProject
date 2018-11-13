@@ -21,6 +21,9 @@ public class Teacher extends Person implements Comparable<Teacher> {
 	public int getTchId() {
 		return tchId;
 	}
+	public void setTchId(int tchId) {
+		this.tchId = tchId;
+	}
 	public boolean isIdle() {
 		return isIdle;
 	}
@@ -43,5 +46,6 @@ public class Teacher extends Person implements Comparable<Teacher> {
 		// TODO Auto-generated method stub
 		return Integer.valueOf(tchId).compareTo(tch.tchId);
 	}
+
 
 }
