@@ -25,13 +25,6 @@ import neu.edu.csye6200.team.objects.Teacher;
 
 public class ViewTeacherController extends AbstractController {
 	
-	@FXML
-	private JFXButton studentButton;
-	@FXML
-	private JFXButton teacherButton;
-	@FXML
-	private JFXButton admButton;
-	
 	/**
 	 * Usage: Searching
 	 */
@@ -47,8 +40,6 @@ public class ViewTeacherController extends AbstractController {
 	private TableView<Teacher> tchTable;
 	@FXML
 	private TableColumn<Teacher, Integer> tchId;
-	@FXML
-	private TableColumn<Teacher, String> tchGender;
 //	@FXML
 //	private TableColumn<Teacher, Integer> tchClassNo;
 //	@FXML
@@ -63,14 +54,10 @@ public class ViewTeacherController extends AbstractController {
 	private Label firstNameLabel;
 	@FXML
 	private Label lastNameLabel;
-	@FXML
-	private Label genderLabel;
 //	@FXML
 //	private Label classNoLabel;
 //	@FXML
 //	private Label classSizeLabel;
-	@FXML
-	private Label contactInfoLabel;
 	
 	@FXML
 	private TableView<Student> stuTable;
@@ -169,9 +156,21 @@ public class ViewTeacherController extends AbstractController {
 			error.showAndWait();
 			});
 			return;
-		}
-		
-		
+		}	
+	}
+	
+	
+	public void studentButton(ActionEvent event) throws Exception {
+		// TODO
+		// load ViewStudent.fxml
+	}
+	
+	public void teacherButton(ActionEvent event) throws Exception {
+		return;
+	}
+	
+	public void admButton(ActionEvent event) throws Exception {
+		application.loadAdmin();
 	}
 	
 	@FXML

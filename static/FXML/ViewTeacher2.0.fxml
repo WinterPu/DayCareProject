@@ -21,17 +21,17 @@
                   </Label>
                </children>
             </Pane>
-            <JFXButton fx:id="admButton" layoutX="10.0" layoutY="171.0" prefHeight="73.0" prefWidth="177.0" text="Administrator" textFill="WHITE">
+            <JFXButton layoutX="10.0" layoutY="171.0" onAction="#admButton" prefHeight="73.0" prefWidth="177.0" text="Administrator" textFill="WHITE">
                <font>
                   <Font name="Arial Rounded MT Bold" size="21.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="studentButton" prefHeight="90.0" prefWidth="177.0" text="Student" textFill="WHITE">
+            <JFXButton onAction="#studentButton" prefHeight="90.0" prefWidth="177.0" text="Student" textFill="WHITE">
                <font>
                   <Font name="Arial Rounded MT Bold" size="21.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="teacherButton" layoutX="10.0" layoutY="101.0" prefHeight="90.0" prefWidth="177.0" text="Teacher" textFill="WHITE">
+            <JFXButton layoutX="10.0" layoutY="101.0" onAction="#teacherButton" prefHeight="90.0" prefWidth="177.0" text="Teacher" textFill="WHITE">
                <font>
                   <Font name="Arial Rounded MT Bold" size="21.0" />
                </font>
