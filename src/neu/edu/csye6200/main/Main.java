@@ -23,7 +23,7 @@ import neu.edu.csye6200.team.util.*;
 public class Main extends Application {
 	
 	private ObservableList<Rules> ruleDate = FXCollections.observableArrayList();
-    private ObservableList<Teacher> tchData = FXCollections.observableArrayList();
+    private static ObservableList<Teacher> tchData = FXCollections.observableArrayList();
     
 	private Stage stage; 
 	private Student student;
@@ -36,8 +36,9 @@ public class Main extends Application {
 			stage = primaryStage;
 			initialize();
 			
-			loadStudentInput();
+//			loadStudentInput();
 			//goViewStudent();
+			loadTeacher();
 			stage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -69,14 +70,14 @@ public class Main extends Application {
 	public void loadImmunizationView() throws Exception{
 		AnchorPane pane = new AnchorPane();
 		ImmunizationCheckController controller = new ImmunizationCheckController();
-		loadPane( "static/FXML/ImmunizationStatus.fxml",pane,controller);
+		loadPane("static/FXML/ImmunizationStatus.fxml",pane,controller);
 	}
 	
 	public void loadTeacher() throws Exception{
 		this.stage.setTitle("Teacher");
 		AnchorPane pane = new AnchorPane();
 		ViewTeacherController controller = null;
-		loadPane( "static/FXML/ViewTeacher.fxml",pane,controller);
+		loadPane("static/FXML/ViewTeacher2.0.fxml",pane,controller);
 	}
 	
 	
@@ -135,6 +136,10 @@ public class Main extends Application {
 //		dm.deleteOneObject(new Student(100020, "A", "B", new Date(), 30));
 		DataManagement<Immunization> dm = new ImmuDataManagement();
 		System.out.println(dm.getDataList(100010));
+		
+		// Read in teacher.csv into tchData
+		DataManagement<Teacher> dmTeacher = new TeacherDataManagement();
+		tchData = FXCollections.observableArrayList(dmTeacher.getDataList());
 		launch(args);
 	}
 
