@@ -1,4 +1,4 @@
-package neu.edu.csye6200.main;
+package neu.edu.csye6200.team.util;
 
 import java.io.FileInputStream;
 import java.io.IOException;

@@ -7,7 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="neu.edu.csye6200.team.controller.AddTeacherController">
    <children>
       <Pane prefHeight="62.0" prefWidth="294.0" style="-fx-background-color: #3e7cee;" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
@@ -42,12 +42,12 @@
                   <Font name="Arial Black" size="15.0" />
                </font>
             </Label>
-            <JFXTextField GridPane.rowIndex="1">
+            <JFXTextField fx:id="fName" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="50.0" />
                </GridPane.margin>
             </JFXTextField>
-            <JFXTextField GridPane.rowIndex="3">
+            <JFXTextField fx:id="lName" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets right="50.0" />
                </GridPane.margin>
@@ -80,8 +80,8 @@
       </GridPane>
       <HBox layoutX="340.0" layoutY="363.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="20.0">
          <children>
-            <Button layoutX="340.0" layoutY="363.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="60.0" text="Save" />
-            <Button layoutX="410.0" layoutY="363.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="60.0" text="Cancel" />
+            <Button layoutX="340.0" layoutY="363.0" mnemonicParsing="false" onAction="#handleSave" prefHeight="23.0" prefWidth="60.0" text="Save" />
+            <Button layoutX="410.0" layoutY="363.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="23.0" prefWidth="60.0" text="Cancel" />
          </children>
       </HBox>
    </children>

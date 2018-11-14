@@ -1,4 +1,4 @@
-stuId,firstName,lastName,age,fatherName,motherName
+stuId,age,fatherName,motherName,immunizations,firstName,lastName,registerTime
 100001,Jimmy,Tompson,53,Aron Tompson,Emma Tompson
 100002,Sally,George,39,Jacob George,Isabella George
 100003,Lizzy,Edwen,36,Ethan Edwen,Madison Edwen
@@ -18,3 +18,17 @@ stuId,firstName,lastName,age,fatherName,motherName
 100017,Mary,Mandery,12,Tyler Mandery,Lily Mandery
 100018,Annie,Johns,63,Luke Johns,Kylie Johns
 100019,Karlly,Karren,11,Connor Karren,Brooke Karren
+100020,123,123,14,null,null
+100021,123,123,14,null,null
+100022,123,123,14,null,null
+100023,123,123,14,null,null
+100024,123,123,14,null,null
+100025,123,123,14,null,null
+100026,123,123,14,null,null
+100027,123,123,14,null,null
+100028,123,123,7,null,null
+100029,123,123,7,null,null
+100030,123,123,7,null,null
+100031,123,123,7,null,null
+100032,123,123,7,null,null
+100033,123,123,7,null,null

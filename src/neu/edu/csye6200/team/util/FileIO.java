@@ -13,8 +13,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import neu.edu.csye6200.main.PropertiesReader;
-
 /**
  * This class provide some basic methods about reading and writing files. These methods should not be modified. Every data operation, which needs 
  * to read or write files, should use only the method provided here.

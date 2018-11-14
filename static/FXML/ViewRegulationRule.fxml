@@ -7,7 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="neu.edu.csye6200.team.view.RegulationRulesController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="neu.edu.csye6200.team.controller.RegulationRulesController">
    <children>
       <Pane prefHeight="62.0" prefWidth="294.0" style="-fx-background-color: #3e7cee;" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
@@ -21,7 +21,7 @@
       <HBox layoutX="340.0" layoutY="363.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="20.0">
          <children>
             <Button layoutX="340.0" layoutY="363.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="60.0" text="Print" />
-            <Button layoutX="410.0" layoutY="363.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="60.0" text="Back" />
+            <Button layoutX="410.0" layoutY="363.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="23.0" prefWidth="60.0" text="Back" />
          </children>
       </HBox>
       <TableView fx:id="personTable" layoutX="11.0" layoutY="72.0" prefHeight="270.0" prefWidth="480.0" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="72.0">

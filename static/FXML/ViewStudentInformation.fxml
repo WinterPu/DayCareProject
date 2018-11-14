@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.AnchorPane?>
 
-
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="application.ViewStudentController">
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="neu.edu.csye6200.team.controller.ViewStudentController">
    <center>
       <AnchorPane prefHeight="525.0" prefWidth="637.0" BorderPane.alignment="CENTER">
          <children>
-            <Label id="idLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="72.0" layoutY="117.0" prefHeight="28.0" prefWidth="94.0" text="Student ID" />
-            <Label id="firnameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="72.0" layoutY="162.0" prefHeight="28.0" prefWidth="94.0" text="First Name" />
-            <Label id="lastnameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="72.0" layoutY="204.0" prefHeight="28.0" prefWidth="94.0" text="Last Name" />
-            <Label id="ageLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="80.0" layoutY="249.0" prefHeight="28.0" prefWidth="94.0" text="Age" />
-            <Label id="fatherLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="72.0" layoutY="295.0" prefHeight="28.0" prefWidth="94.0" text="Father Name" />
-            <Label id="motherLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="80.0" layoutY="343.0" prefHeight="28.0" prefWidth="94.0" text="Mother Name" />
-            <Label id="registerLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="80.0" layoutY="396.0" prefHeight="28.0" prefWidth="94.0" text="Register Time" />
-            <TextField id="txtID" layoutX="207.0" layoutY="120.0" />
-            <TextField id="txtFirstname" layoutX="207.0" layoutY="165.0" />
-            <TextField id="txtLastname" layoutX="207.0" layoutY="207.0" />
-            <TextField id="txtAge" layoutX="207.0" layoutY="251.0" />
-            <TextField id="txtFather" layoutX="207.0" layoutY="298.0" />
-            <TextField id="txtMother" layoutX="207.0" layoutY="346.0" />
-            <TextField id="txtRegister" layoutX="207.0" layoutY="399.0" />
-            <Button id="btnBack" layoutX="490.0" layoutY="350.0" mnemonicParsing="false" onAction="#back" prefHeight="33.0" prefWidth="92.0" text="Back" />
-            <Button id="btnCheckimmun" layoutX="430.0" layoutY="424.0" mnemonicParsing="false" onAction="#checkImmuns" prefHeight="33.0" prefWidth="186.0" text="Check Immunization Status" />
+            <Label fx:id="idLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="72.0" layoutY="117.0" prefHeight="28.0" prefWidth="94.0" text="Student ID" />
+            <Label fx:id="firnameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="72.0" layoutY="162.0" prefHeight="28.0" prefWidth="94.0" text="First Name" />
+            <Label fx:id="lastnameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="72.0" layoutY="204.0" prefHeight="28.0" prefWidth="94.0" text="Last Name" />
+            <Label fx:id="ageLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="80.0" layoutY="249.0" prefHeight="28.0" prefWidth="94.0" text="Age" />
+            <Label fx:id="fatherLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="72.0" layoutY="295.0" prefHeight="28.0" prefWidth="94.0" text="Father Name" />
+            <Label fx:id="motherLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="80.0" layoutY="343.0" prefHeight="28.0" prefWidth="94.0" text="Mother Name" />
+            <Label fx:id="registerLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="80.0" layoutY="396.0" prefHeight="28.0" prefWidth="94.0" text="Register Time" />
+            <TextField fx:id="txtID" editable="false" layoutX="207.0" layoutY="120.0">
+               <cursor>
+                  <Cursor fx:constant="DISAPPEAR" />
+               </cursor></TextField>
+            <TextField fx:id="txtFirstname" editable="false" layoutX="207.0" layoutY="165.0" />
+            <TextField fx:id="txtLastname" editable="false" layoutX="207.0" layoutY="207.0" />
+            <TextField fx:id="txtAge" editable="false" layoutX="207.0" layoutY="251.0" />
+            <TextField fx:id="txtFather" editable="false" layoutX="207.0" layoutY="298.0" />
+            <TextField fx:id="txtMother" editable="false" layoutX="207.0" layoutY="346.0" />
+            <TextField fx:id="txtRegister" editable="false" layoutX="207.0" layoutY="399.0" />
+            <Button fx:id="btnBack" layoutX="490.0" layoutY="350.0" mnemonicParsing="false" onAction="#back" prefHeight="33.0" prefWidth="92.0" text="Back" />
+            <Button fx:id="btnCheckimmun" layoutX="430.0" layoutY="424.0" mnemonicParsing="false" onAction="#checkImmuns" prefHeight="33.0" prefWidth="186.0" text="Check Immunization Status" />
          </children>
       </AnchorPane>
    </center>
