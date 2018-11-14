@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="430.0" prefWidth="177.0" style="-fx-background-color: #3e7cee;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane prefHeight="100.0" prefWidth="177.0">
+               <children>
+                  <Label layoutX="24.0" layoutY="28.0" text="Daycare " textFill="WHITE">
+                     <font>
+                        <Font name="JasmineUPC Bold" size="48.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <JFXButton layoutX="10.0" layoutY="171.0" prefHeight="73.0" prefWidth="177.0" text="Administrator" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="21.0" />
+               </font>
+            </JFXButton>
+            <JFXButton prefHeight="90.0" prefWidth="177.0" text="Student" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="21.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="10.0" layoutY="101.0" prefHeight="90.0" prefWidth="177.0" text="Teacher" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="21.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </VBox>
+      <Label layoutX="177.0" layoutY="31.0" prefHeight="64.0" prefWidth="459.0" text="Student Info Check Entrance" AnchorPane.leftAnchor="177.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="25.0" />
+         </font>
+         <padding>
+            <Insets left="50.0" />
+         </padding>
+      </Label>
+      <JFXTextArea fx:id="txtID" layoutX="400.0" layoutY="180.0" prefHeight="34.0" prefWidth="159.0" />
+      <Label layoutX="271.0" layoutY="180.0" prefHeight="45.0" prefWidth="129.0" text="Student ID:">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="20.0" />
+         </font>
+      </Label>
+      <HBox layoutX="254.0" layoutY="302.0" spacing="150.0">
+         <children>
+            <Button id="btnClear" fx:id="btnClear" layoutX="271.0" layoutY="307.0" mnemonicParsing="false" onAction="#clear" prefHeight="31.0" prefWidth="84.0" text="Clear" />
+            <Button id="btnSubmit" fx:id="btnSubmit" layoutX="432.0" layoutY="307.0" mnemonicParsing="false" onAction="#submit" prefHeight="31.0" prefWidth="85.0" text="Submit" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
