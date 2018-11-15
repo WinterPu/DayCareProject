@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.geometry.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.text.*?>
@@ -11,10 +12,13 @@
    <children>
       <Pane prefHeight="62.0" prefWidth="294.0" style="-fx-background-color: #3e7cee;" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
-            <Label layoutX="78.0" layoutY="18.0" text="Add Child Info" textFill="WHITE">
+            <Label layoutX="14.0" layoutY="14.0" text="Add Child Info" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="18.0" />
                </font>
+               <effect>
+                  <Reflection />
+               </effect>
             </Label>
          </children>
       </Pane>
@@ -33,22 +37,7 @@
          <children>
             <Label text="First Name" textFill="#3e7cee">
                <font>
-                  <Font name="Arial Black" size="15.0" />
-               </font>
-            </Label>
-            <Label layoutX="10.0" layoutY="37.0" text="Last Name" textFill="#3e7cee" GridPane.columnIndex="1">
-               <font>
-                  <Font name="Arial Black" size="15.0" />
-               </font>
-            </Label>
-            <Label layoutX="10.0" layoutY="175.0" text="Father Name" textFill="#3e7cee" GridPane.rowIndex="2">
-               <font>
-                  <Font name="Arial Black" size="15.0" />
-               </font>
-            </Label>
-            <Label layoutX="260.0" layoutY="37.0" text="Mother Name" textFill="#3e7cee" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <font>
-                  <Font name="Arial Black" size="15.0" />
+                  <Font name="Consolas Bold" size="17.0" />
                </font>
             </Label>
             <JFXTextField fx:id="fName" GridPane.rowIndex="1">
@@ -71,16 +60,31 @@
                   <Insets right="30.0" />
                </GridPane.margin>
             </JFXTextField>
-            <Label layoutX="10.0" layoutY="110.0" text="Age" textFill="#3e7cee" GridPane.columnIndex="2">
-               <font>
-                  <Font name="Arial Black" size="15.0" />
-               </font>
-            </Label>
             <JFXTextField fx:id="age" layoutX="10.0" layoutY="154.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="30.0" />
                </GridPane.margin>
             </JFXTextField>
+            <Label layoutX="10.0" layoutY="33.0" text="Last Name" textFill="#3e7cee" GridPane.columnIndex="1">
+               <font>
+                  <Font name="Consolas Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="33.0" text="Age" textFill="#3e7cee" GridPane.columnIndex="2">
+               <font>
+                  <Font name="Consolas Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="33.0" text="Father Name" textFill="#3e7cee" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Consolas Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="166.0" text="Mother Name" textFill="#3e7cee" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Consolas Bold" size="17.0" />
+               </font>
+            </Label>
          </children>
       </GridPane>
       <HBox layoutX="340.0" layoutY="363.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="20.0">

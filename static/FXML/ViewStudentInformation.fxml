@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -13,8 +20,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<HBox prefHeight="550.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="neu.edu.csye6200.team.controller.ViewStudentController">
+<HBox prefHeight="550.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="neu.edu.csye6200.team.controller.ViewStudentController">
    <children>
       <VBox prefHeight="200.0" prefWidth="450.0">
          <children>
@@ -51,7 +57,7 @@
                         <Insets left="50.0" />
                      </padding>
                      <font>
-                        <Font name="Consolas" size="15.0" />
+                        <Font name="Consolas Bold" size="17.0" />
                      </font>
                      <GridPane.margin>
                         <Insets />
@@ -62,7 +68,7 @@
                         <Insets left="50.0" />
                      </padding>
                      <font>
-                        <Font name="Consolas" size="15.0" />
+                        <Font name="Consolas Bold" size="17.0" />
                      </font>
                   </Label>
                   <Label layoutX="10.0" layoutY="73.0" text="Last Name" textFill="#3e7cee" GridPane.rowIndex="2">
@@ -70,7 +76,7 @@
                         <Insets left="50.0" />
                      </padding>
                      <font>
-                        <Font name="Consolas" size="15.0" />
+                        <Font name="Consolas Bold" size="17.0" />
                      </font>
                   </Label>
                   <Label layoutX="10.0" layoutY="120.0" text="Age" textFill="#3e7cee" GridPane.rowIndex="3">
@@ -78,7 +84,7 @@
                         <Insets left="50.0" />
                      </padding>
                      <font>
-                        <Font name="Consolas" size="15.0" />
+                        <Font name="Consolas Bold" size="17.0" />
                      </font>
                   </Label>
                   <Label layoutX="10.0" layoutY="166.0" text="Father Name" textFill="#3e7cee" GridPane.rowIndex="4">
@@ -86,7 +92,7 @@
                         <Insets left="50.0" />
                      </padding>
                      <font>
-                        <Font name="Consolas" size="15.0" />
+                        <Font name="Consolas Bold" size="17.0" />
                      </font>
                   </Label>
                   <Label layoutX="10.0" layoutY="212.0" text="Mother Name" textFill="#3e7cee" GridPane.rowIndex="5">
@@ -94,7 +100,7 @@
                         <Insets left="50.0" />
                      </padding>
                      <font>
-                        <Font name="Arial Rounded MT Bold" size="16.0" />
+                        <Font name="Consolas Bold" size="17.0" />
                      </font>
                   </Label>
                   <Label layoutX="10.0" layoutY="258.0" text="Register Time" textFill="#3e7cee" GridPane.rowIndex="6">
@@ -102,7 +108,7 @@
                         <Insets left="50.0" />
                      </padding>
                      <font>
-                        <Font name="Consolas" size="15.0" />
+                        <Font name="Consolas Bold" size="17.0" />
                      </font>
                   </Label>
                   <TextField fx:id="txtID" GridPane.columnIndex="1" />
@@ -114,7 +120,7 @@
                   <TextField fx:id="txtRegister" layoutX="238.0" layoutY="240.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                   <Label text="Classroom" textFill="#3e7cee" GridPane.rowIndex="7">
                      <font>
-                        <Font name="Consolas" size="16.0" />
+                        <Font name="Consolas Bold" size="17.0" />
                      </font>
                      <padding>
                         <Insets left="50.0" />

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
@@ -35,7 +36,7 @@
                   <Insets left="30.0" />
                </GridPane.margin>
                <font>
-                  <Font name="Arial Rounded MT Bold" size="16.0" />
+                  <Font name="Consolas Bold" size="17.0" />
                </font>
             </Label>
             <TextField fx:id="txtName" layoutX="221.0" layoutY="239.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -48,7 +49,7 @@
                   <Insets left="30.0" />
                </GridPane.margin>
                <font>
-                  <Font name="Arial Rounded MT Bold" size="16.0" />
+                  <Font name="Consolas Bold" size="17.0" />
                </font>
             </Label>
             <TextField fx:id="txtID" layoutX="221.0" layoutY="187.0" GridPane.columnIndex="1">
@@ -61,7 +62,7 @@
                   <Insets left="30.0" />
                </GridPane.margin>
                <font>
-                  <Font name="Arial Rounded MT Bold" size="16.0" />
+                  <Font name="Consolas Bold" size="17.0" />
                </font>
             </Label>
             <TextField fx:id="txtDuration" layoutX="221.0" layoutY="287.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
@@ -79,10 +80,13 @@
       </HBox>
       <Pane layoutX="14.0" layoutY="23.0" maxWidth="1.7976931348623157E308" prefHeight="60.0" prefWidth="280.0" style="-fx-background-color: #3e7cee;" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
-            <Label layoutX="23.0" layoutY="16.0" text="Update Immunization" textFill="WHITE">
+            <Label layoutX="14.0" layoutY="8.0" text="Update Immunization" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="20.0" />
                </font>
+               <effect>
+                  <Reflection />
+               </effect>
             </Label>
          </children>
          <padding>
@@ -99,9 +103,9 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ComboBox fx:id="cbImmname" prefHeight="23.0" prefWidth="153.0">
+            <ComboBox fx:id="cbImmname" prefHeight="24.0" prefWidth="143.0">
                <GridPane.margin>
-                  <Insets left="30.0" />
+                  <Insets left="10.0" />
                </GridPane.margin>
             </ComboBox>
             <JFXButton fx:id="btnUpdate" maxWidth="1.7976931348623157E308" onAction="#update" prefHeight="48.0" prefWidth="206.0" text="Update" textFill="WHITE" GridPane.columnIndex="1">

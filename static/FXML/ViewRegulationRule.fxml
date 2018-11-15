@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.geometry.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.text.*?>
@@ -11,19 +12,17 @@
    <children>
       <Pane prefHeight="62.0" prefWidth="294.0" style="-fx-background-color: #3e7cee;" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
-            <Label layoutX="34.0" layoutY="18.0" text="State Regulation Rules" textFill="WHITE">
+            <Label layoutX="14.0" layoutY="14.0" text="State Regulation Rules" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="18.0" />
                </font>
+               <effect>
+                  <Reflection />
+               </effect>
             </Label>
          </children>
       </Pane>
-      <HBox layoutX="340.0" layoutY="363.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="20.0">
-         <children>
-            <Button layoutX="340.0" layoutY="363.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="60.0" text="Print" />
-            <Button layoutX="410.0" layoutY="363.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="23.0" prefWidth="60.0" text="Back" />
-         </children>
-      </HBox>
+      <Button layoutX="420.0" layoutY="367.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="23.0" prefWidth="60.0" text="Back" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="20.0" />
       <TableView fx:id="personTable" layoutX="11.0" layoutY="72.0" prefHeight="270.0" prefWidth="480.0" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="72.0">
         <columns>
           <TableColumn fx:id="ageColumn" prefWidth="75.0" text="Age" />
