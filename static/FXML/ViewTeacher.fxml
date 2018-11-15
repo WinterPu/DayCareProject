@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
@@ -15,11 +22,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="550.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="neu.edu.csye6200.team.controller.ViewTeacherController">
+<VBox prefHeight="550.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="neu.edu.csye6200.team.controller.ViewTeacherController">
    <children>
       <HBox prefHeight="50.0" prefWidth="600.0">
          <children>
-            <JFXTextField fx:id="searchField" prefHeight="50.0" prefWidth="400.0" promptText="Search for name, class no.">
+            <JFXTextField fx:id="searchField" prefHeight="50.0" prefWidth="400.0" promptText="Search for Teacher ID">
                <padding>
                   <Insets left="30.0" />
                </padding>
@@ -90,7 +97,7 @@
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Label fx:id="tchIdLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="50.0" />
                      </GridPane.margin>

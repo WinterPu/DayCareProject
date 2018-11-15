@@ -59,6 +59,8 @@ public class ViewTeacherController extends AbstractController {
 	@FXML
 	private Label lastNameLabel;
 	@FXML
+	private Label tchIdLabel;
+	@FXML
 	private Label classNoLabel;
 	@FXML
 	private Label classSizeLabel;
@@ -86,6 +88,7 @@ public class ViewTeacherController extends AbstractController {
 		if(t != null) {
 			firstNameLabel.setText(t.getFirstName());
 			lastNameLabel.setText(t.getLastName());
+			tchIdLabel.setText(Integer.toString(t.getTchId()));
 			for(Classroom cc : cList) {
 				if(cc.getTeacher() == t) {
 					classNoLabel.setText(cc.getName());
