@@ -74,7 +74,7 @@ public class ViewTeacherController extends AbstractController {
 	@FXML
 	private TableColumn<Student, Integer> stuAge;
 	
-	private Main application;
+//	private Main application;
 	private Classroom clazRoom = new Classroom();
 	private ObservableList<Classroom> cList = DataStore.getInstance().getClassroomList();
 	
@@ -170,8 +170,8 @@ public class ViewTeacherController extends AbstractController {
 		 * Using DataManagement to get Students data
 		 */
 		
-		stuTable.getSelectionModel().selectedItemProperty().addListener(
-				(observable, oldValue, newValue) -> updateStudentList(newValue));
+//		stuTable.getSelectionModel().selectedItemProperty().addListener(
+//				(observable, oldValue, newValue) -> updateStudentList(newValue));
 	}
 	
 	private void updateStudentList(Student s) {
@@ -254,7 +254,7 @@ public class ViewTeacherController extends AbstractController {
 	
 	@Override
 	public void setApp(Main mainTestTeacher) {
-		this.application = mainTestTeacher;
+//		this.application = mainTestTeacher;
         // Add observable list data to the table
         tchTable.setItems(FXCollections.observableArrayList(DataStore.getInstance().getTeachers()));
         stuTable.setItems(FXCollections.observableArrayList(DataStore.getInstance().getStudents()));
