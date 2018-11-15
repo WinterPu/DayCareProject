@@ -3,6 +3,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
+
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -138,8 +140,8 @@ public class Main extends Application {
 		System.out.println(dm.getDataList(100010));
 		
 		// Read in teacher.csv into tchData
-		DataManagement<Teacher> dmTeacher = new TeacherDataManagement();
-		tchData = FXCollections.observableArrayList(dmTeacher.getDataList());
+//		DataManagement<Teacher> dmTeacher = new TeacherDataManagement();
+//		tchData = FXCollections.observableArrayList(dmTeacher.getDataList());
 		launch(args);
 	}
 
@@ -150,8 +152,10 @@ public class Main extends Application {
 	}
 	
     public ObservableList<Teacher> getTeacherData() {
-        return tchData;
+    	return FXCollections.observableArrayList(DataStore.getInstance().getTeachers());
+//        return tchData;
     }
+    
     
     
     
