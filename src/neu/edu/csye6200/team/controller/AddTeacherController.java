@@ -3,6 +3,8 @@ package neu.edu.csye6200.team.controller;
 import com.jfoenix.controls.JFXTextField;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import neu.edu.csye6200.main.Main;
 import neu.edu.csye6200.team.data.DataStore;
@@ -35,9 +37,18 @@ public class AddTeacherController extends AbstractController{
     
     @FXML
     private void handleSave() {
-    	int tcId = DataStore.getInstance().getTeachers().get(DataStore.getInstance().getTeachers().size()-1).getTchId() + 1;
-    	DataStore.getInstance().getTeachers().add(new Teacher(tcId, fName.getText(), lName.getText()));
-    	new TeacherDataManagement().refreshAll(DataStore.getInstance().getTeachers());
-        dialogStage.close();
+    	if(fName.getText().isEmpty()||lName.getText().isEmpty()) {
+    		Alert alert = new Alert(AlertType.WARNING);
+            alert.initOwner(main.getStage());
+            alert.setTitle("Warning");
+            alert.setHeaderText("The Information is Incomplete");
+            alert.setContentText("Please fill in the blank");
+            alert.showAndWait();
+    	}else {
+    		int tcId = DataStore.getInstance().getTeachers().get(DataStore.getInstance().getTeachers().size()-1).getTchId() + 1;
+        	DataStore.getInstance().getTeachers().add(new Teacher(tcId, fName.getText(), lName.getText()));
+        	new TeacherDataManagement().refreshAll(DataStore.getInstance().getTeachers());
+            dialogStage.close();
+    	}
     }
 }

@@ -58,31 +58,55 @@ public class AddStudentController extends AbstractController{
     
     @FXML
     private void handleSave() throws Exception {
-    	int studentId = DataStore.getInstance().getStudents().get(DataStore.getInstance().getStudents().size()-1).getStuId() + 1;
-    	DataStore.getInstance().getStudents().add(
-    			new Student(studentId, fName.getText(),lName.getText(),
-    					Integer.parseInt(age.getText()), new Date(), fatherName.getText(), motherName.getText()));
-    	classroom.arrange();
-    	if(classroom.teacherIsExcept()) {
-    		DataStore.getInstance().getStudents().remove(DataStore.getInstance().getStudents().size()-1);
-			Alert alert = new Alert(AlertType.WARNING);
+    	if(fName.getText().isEmpty()||lName.getText().isEmpty()||age.getText().isEmpty()||fatherName.getText().isEmpty()||motherName.getText().isEmpty()) {
+    		Alert alert = new Alert(AlertType.WARNING);
             alert.initOwner(main.getStage());
             alert.setTitle("Warning");
-            alert.setHeaderText("No Teacher Is Available");
-            alert.setContentText("Need to employee more teachers");
+            alert.setHeaderText("The Information is Incomplete");
+            alert.setContentText("Please fill in the blank");
             alert.showAndWait();
-    	}
-    	if(classroom.classIsExcept()) {
-    			DataStore.getInstance().getStudents().remove(DataStore.getInstance().getStudents().size()-1);
+    	}else if(!isInt(age.getText())){
+    		Alert alert = new Alert(AlertType.WARNING);
+            alert.initOwner(main.getStage());
+            alert.setTitle("Warning");
+            alert.setHeaderText("Wrong Format");
+            alert.setContentText("please enter a valid age");
+            alert.showAndWait();
+    	}else {
+    		int studentId = DataStore.getInstance().getStudents().get(DataStore.getInstance().getStudents().size()-1).getStuId() + 1;
+        	DataStore.getInstance().getStudents().add(
+        			new Student(studentId, fName.getText(),lName.getText(),
+        					Integer.parseInt(age.getText()), new Date(), fatherName.getText(), motherName.getText()));
+        	classroom.arrange();
+        	if(classroom.teacherIsExcept()) {
+        		DataStore.getInstance().getStudents().remove(DataStore.getInstance().getStudents().size()-1);
     			Alert alert = new Alert(AlertType.WARNING);
                 alert.initOwner(main.getStage());
                 alert.setTitle("Warning");
-                alert.setHeaderText("The Clss Is Full");
-                alert.setContentText("Can not add student whoes age is between "+classroom.getExceptRange()+" any more");
+                alert.setHeaderText("No Teacher Is Available");
+                alert.setContentText("Need to employee more teachers");
                 alert.showAndWait();
-    	}else {
-    		//dialogStage.close();
+        	}
+        	if(classroom.classIsExcept()) {
+        			DataStore.getInstance().getStudents().remove(DataStore.getInstance().getStudents().size()-1);
+        			Alert alert = new Alert(AlertType.WARNING);
+                    alert.initOwner(main.getStage());
+                    alert.setTitle("Warning");
+                    alert.setHeaderText("The Clss Is Full");
+                    alert.setContentText("Can not add student whoes age is between "+classroom.getExceptRange()+" any more");
+                    alert.showAndWait();
+        	}
+        	//dialogStage.close();
+        	new StudentDataManagement().refreshAll(DataStore.getInstance().getStudents());
     	}
-    	new StudentDataManagement().refreshAll(DataStore.getInstance().getStudents());
+    }
+    
+    public boolean isInt(String s) {
+    	try{
+            Integer.parseInt(s);
+            return true;
+        }catch(NumberFormatException e){
+            return false;
+        }
     }
 }
