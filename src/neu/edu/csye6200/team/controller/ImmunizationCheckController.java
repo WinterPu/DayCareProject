@@ -30,9 +30,10 @@ import neu.edu.csye6200.team.objects.Student;
  * @author Qianru
  * The class contains operations in Immunization Check interface
  */
-public class ImmunizationCheckController extends AbstractController implements Initializable {
+public class ImmunizationCheckController extends AbstractController  implements Initializable {
 
 	private Main application;
+
 	public static Student student;
 	@FXML
 	private TableView immTable = new TableView();
@@ -49,7 +50,14 @@ public class ImmunizationCheckController extends AbstractController implements I
 	@FXML
 	private TextField txtDuration = new TextField();
 	
+    
+	private BackgroundPanelController background_controller;
 	
+    public void setBackground(BackgroundPanelController controller) {
+    	background_controller = controller;
+    }
+    
+    
 	ImmuDataManagement idm;
 	ArrayList<Immunization> immList;
 	private ObservableList<ImmunList> data = FXCollections.observableArrayList();
@@ -59,6 +67,10 @@ public class ImmunizationCheckController extends AbstractController implements I
 		this.application = app;
 		System.out.println(application+"    in setApp");
 	}
+	
+    public void setStudent(Student student) {
+    	this.student = student;
+    }
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -91,7 +103,7 @@ public class ImmunizationCheckController extends AbstractController implements I
 		    	stat = "Out Of Date";
 		    	
 		    }
-		    else if(timeLeft>=0 && timeLeft<360) {
+		    else if(timeLeft>=0 && timeLeft<30) {
 		    	stat = "Warning";
 		    }
 		    else {
@@ -147,7 +159,7 @@ public class ImmunizationCheckController extends AbstractController implements I
 	}
 	
 	public void back(ActionEvent event) throws Exception {
-		application.loadStudentInput();
+		background_controller.loadStudent();
 	}
 	
 }

@@ -64,6 +64,7 @@ public class FileIO<T> {
 	 */
 	public static <T> List<T> readFileOfMap(Class<T> clazz, String dataType) {
 		Field[] fields = concat(clazz.getDeclaredFields(), clazz.getSuperclass().getDeclaredFields());
+		
 		List<T> data = new ArrayList<>();
 		try(BufferedReader bw = new BufferedReader(new FileReader(PropertiesReader.getFilePath(dataType)))) {
 			String[] titles = new String[fields.length];

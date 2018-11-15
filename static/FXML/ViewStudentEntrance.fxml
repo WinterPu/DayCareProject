@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="neu.edu.csye6200.team.controller.StudentEnterController">
+   <children>
+      <Label alignment="CENTER" prefHeight="50.0" prefWidth="600.0" text="Student Info Check Entrance" AnchorPane.bottomAnchor="350.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <font>
+            <Font name="Consolas Bold" size="25.0" />
+         </font>
+         <rotationAxis>
+            <Point3D />
+         </rotationAxis>
+         <effect>
+            <Glow />
+         </effect>
+      </Label>
+      <Label prefHeight="50.0" prefWidth="200.0" text="Student ID:" AnchorPane.topAnchor="200.0">
+         <font>
+            <Font name="Consolas" size="20.0" />
+         </font>
+         <padding>
+            <Insets left="50.0" />
+         </padding>
+         <effect>
+            <Glow />
+         </effect>
+      </Label>
+      <JFXTextField id="txtID" fx:id="txtID" layoutX="200.0" prefHeight="50.0" prefWidth="350.0" AnchorPane.topAnchor="200.0" />
+      <Pane prefHeight="50.0" prefWidth="600.0" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="225.0" AnchorPane.topAnchor="300.0">
+         <children>
+            <JFXButton fx:id="btnUpdate" buttonType="RAISED" onAction="#update" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #0D47A1;" text="Update" textFill="WHITE">
+               <font>
+                  <Font name="Consolas Bold" size="20.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Pane>
+      <HBox prefHeight="50.0" prefWidth="600.0" AnchorPane.topAnchor="400.0">
+         <children>
+            <JFXButton fx:id="btnClear" buttonType="RAISED" onAction="#clear" prefHeight="50.0" prefWidth="150.0" ripplerFill="WHITE" style="-fx-background-color: #000000;" text="Clear" textFill="WHITE">
+               <font>
+                  <Font name="Consolas Bold" size="20.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </HBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="btnSubmit" buttonType="RAISED" onAction="#submit" prefHeight="50.0" prefWidth="150.0" ripplerFill="WHITE" style="-fx-background-color: #000000;" text="Submit" textFill="WHITE">
+               <font>
+                  <Font name="Consolas Bold" size="20.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="240.0" right="20.0" />
+               </HBox.margin>
+            </JFXButton>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

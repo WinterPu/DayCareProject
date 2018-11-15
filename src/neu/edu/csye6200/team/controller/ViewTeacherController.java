@@ -160,29 +160,6 @@ public class ViewTeacherController extends AbstractController {
 	}
 	
 	
-	public void studentButton(ActionEvent event) throws Exception {
-		// TODO
-		// load ViewStudent.fxml
-	}
-	
-	public void teacherButton(ActionEvent event) throws Exception {
-		return;
-	}
-	
-	public void admButton(ActionEvent event) throws Exception {
-		application.loadAdmin();
-	}
-	
-	@FXML
-	private void handlePrintButton() {
-		return;
-	}
-	
-	@FXML
-	private void handleBackButton() {
-		// Return to the initial Scene
-		// application.loadAdm();
-	}
 	
 	@Override
 	public void setApp(Main mainTestTeacher) {

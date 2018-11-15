@@ -2,7 +2,10 @@ package neu.edu.csye6200.main;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -30,6 +33,9 @@ public class Main extends Application {
 	private AnchorPane root;
 	private Scene scene;
 	
+	private List<Student> students = new ArrayList<>();
+	private List<Teacher> teachers = new ArrayList<>();
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -38,22 +44,33 @@ public class Main extends Application {
 			
 //			loadStudentInput();
 			//goViewStudent();
-			loadTeacher();
+			loadProgramPanel();
 			stage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
-	
 	public void initialize() {
-		
 		root = new AnchorPane();
-		scene = new Scene(root,700,600);
+		scene = new Scene(root,800,600);
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		stage.setScene(scene);
 		
 	}
+	
+	public void loadProgramPanel() throws Exception {
+		this.stage.setTitle("My Day Care ");
+		AnchorPane pane = new AnchorPane();
+		BackgroundPanelController controller = null ;
+		controller = loadPane("static/FXML/BackgroundPanel.fxml",pane,controller);
+		controller.setApp(this);
+		System.out.println(controller);
+	}
+	
+	
+	
+	
 	
 	public void loadStudentInput() throws Exception{
 		AnchorPane pane = new AnchorPane();
@@ -77,18 +94,71 @@ public class Main extends Application {
 		this.stage.setTitle("Teacher");
 		AnchorPane pane = new AnchorPane();
 		ViewTeacherController controller = null;
-		loadPane("static/FXML/ViewTeacher2.0.fxml",pane,controller);
+		loadPane("static/FXML/ViewTeacher.fxml",pane,controller);
 	}
 	
 	
-	public void loadAdmin() throws Exception {
-		this.stage.setTitle("Teacher");
-		AnchorPane pane = new AnchorPane();
-		AdminController controller = null;
-		loadPane("static/FXML/Admin.fxml",pane,controller);
+
+	
+	
+	public void loadAddStudent(Classroom classroom) throws Exception {
+		FXMLLoader loader = new FXMLLoader();
+		FileInputStream fxmlStream = new FileInputStream("static/FXML/AddChild.fxml");
+        AnchorPane pane = (AnchorPane) loader.load(fxmlStream);
+
+        Stage dialogStage = new Stage();
+        dialogStage.setTitle("Add new student");
+        dialogStage.initModality(Modality.WINDOW_MODAL);
+        dialogStage.initOwner(stage);
+        Scene scene = new Scene(pane);
+        dialogStage.setScene(scene);
+
+        AddStudentController controller = loader.getController();
+        controller.setDialogStage(dialogStage);
+        controller.setApp(this);
+        controller.setClassroom(classroom);
+
+        dialogStage.showAndWait();
 	}
 	
+	public void loadAddTeacher() throws Exception {
+		FXMLLoader loader = new FXMLLoader();
+		FileInputStream fxmlStream = new FileInputStream("static/FXML/AddTeacher.fxml");
+        AnchorPane pane = (AnchorPane) loader.load(fxmlStream);
+
+        Stage dialogStage = new Stage();
+        dialogStage.setTitle("Add new teacher");
+        dialogStage.initModality(Modality.WINDOW_MODAL);
+        dialogStage.initOwner(stage);
+        Scene scene = new Scene(pane);
+        dialogStage.setScene(scene);
+
+        AddTeacherController controller = loader.getController();
+        controller.setDialogStage(dialogStage);
+        controller.setApp(this);
+
+        dialogStage.showAndWait();
+	}
 	
+	public void loadClassroonInfo(Classroom classroom) throws Exception {
+		FXMLLoader loader = new FXMLLoader();
+		FileInputStream fxmlStream = new FileInputStream("static/FXML/Classroom Info.fxml");
+        AnchorPane pane = (AnchorPane) loader.load(fxmlStream);
+
+        Stage dialogStage = new Stage();
+        dialogStage.setTitle("Add new teacher");
+        dialogStage.initModality(Modality.WINDOW_MODAL);
+        dialogStage.initOwner(stage);
+        Scene scene = new Scene(pane);
+        dialogStage.setScene(scene);
+
+        ClassroomInfoController controller = loader.getController();
+        controller.setDialogStage(dialogStage);
+        controller.setApp(this);
+        controller.setClassroom(classroom);
+        
+        dialogStage.showAndWait();
+	}
 	
 	
 	public void loadRegulationRules() throws Exception {
@@ -115,7 +185,7 @@ public class Main extends Application {
 	
 	
 	
-	public <TP extends Pane ,TC extends AbstractController> void loadPane(String path, TP pane, TC controller) throws Exception {
+	public <TP extends Pane ,TC extends AbstractController> TC loadPane(String path, TP pane, TC controller) throws Exception {
 		FXMLLoader loader = new FXMLLoader();  
 		FileInputStream fxmlStream = new FileInputStream(path);
 		
@@ -126,20 +196,21 @@ public class Main extends Application {
 		System.out.println(pane.getClass().getName());
 		controller = loader.getController();
 		System.out.println(controller.getClass().getName());
-		
+	
 		controller.setApp(this);
+		return controller;
 	}
 		
 	public static void main(String[] args) throws FileNotFoundException, IOException {
-		DataManagement<Student> dm1 = new StudentDataManagement();
-		System.out.println(dm1.getDataList());
-//		dm.deleteOneObject(new Student(100020, "A", "B", new Date(), 30));
-		DataManagement<Immunization> dm = new ImmuDataManagement();
-		System.out.println(dm.getDataList(100010));
-		
-		// Read in teacher.csv into tchData
-		DataManagement<Teacher> dmTeacher = new TeacherDataManagement();
-		tchData = FXCollections.observableArrayList(dmTeacher.getDataList());
+//		DataManagement<Student> dm1 = new StudentDataManagement();
+//		System.out.println(dm1.getDataList());
+////		dm.deleteOneObject(new Student(100020, "A", "B", new Date(), 30));
+//		DataManagement<Immunization> dm = new ImmuDataManagement();
+//		System.out.println(dm.getDataList(100010));
+//		
+//		// Read in teacher.csv into tchData
+//		DataManagement<Teacher> dmTeacher = new TeacherDataManagement();
+//		tchData = FXCollections.observableArrayList(dmTeacher.getDataList());
 		launch(args);
 	}
 
@@ -153,7 +224,9 @@ public class Main extends Application {
         return tchData;
     }
     
-    
+	public Stage getStage() {
+		return stage;
+	}
     
     
 //	public void showRegulationRules() {

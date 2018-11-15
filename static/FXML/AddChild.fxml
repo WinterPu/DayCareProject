@@ -7,7 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="neu.edu.csye6200.team.controller.AddStudentController">
    <children>
       <Pane prefHeight="62.0" prefWidth="294.0" style="-fx-background-color: #3e7cee;" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
@@ -23,14 +23,11 @@
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
@@ -39,12 +36,12 @@
                   <Font name="Arial Black" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="10.0" layoutY="37.0" text="Last Name" textFill="#3e7cee" GridPane.rowIndex="2">
+            <Label layoutX="10.0" layoutY="37.0" text="Last Name" textFill="#3e7cee" GridPane.columnIndex="1">
                <font>
                   <Font name="Arial Black" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="10.0" layoutY="175.0" text="Father Name" textFill="#3e7cee" GridPane.columnIndex="1">
+            <Label layoutX="10.0" layoutY="175.0" text="Father Name" textFill="#3e7cee" GridPane.rowIndex="2">
                <font>
                   <Font name="Arial Black" size="15.0" />
                </font>
@@ -54,86 +51,42 @@
                   <Font name="Arial Black" size="15.0" />
                </font>
             </Label>
-            <JFXTextField GridPane.rowIndex="1">
+            <JFXTextField fx:id="fName" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="30.0" />
                </GridPane.margin>
             </JFXTextField>
-            <JFXTextField GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <JFXTextField fx:id="fatherName" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets right="30.0" />
                </GridPane.margin>
             </JFXTextField>
-            <JFXTextField GridPane.rowIndex="3">
+            <JFXTextField fx:id="lName" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="30.0" />
                </GridPane.margin>
             </JFXTextField>
-            <JFXTextField GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <JFXTextField fx:id="motherName" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets right="30.0" />
                </GridPane.margin>
             </JFXTextField>
-            <Label layoutX="10.0" layoutY="110.0" text="Date of Birth" textFill="#3e7cee" GridPane.rowIndex="4">
+            <Label layoutX="10.0" layoutY="110.0" text="Age" textFill="#3e7cee" GridPane.columnIndex="2">
                <font>
                   <Font name="Arial Black" size="15.0" />
                </font>
             </Label>
-            <JFXTextField layoutX="10.0" layoutY="154.0" GridPane.rowIndex="5">
+            <JFXTextField fx:id="age" layoutX="10.0" layoutY="154.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="30.0" />
                </GridPane.margin>
             </JFXTextField>
-            <Label layoutX="10.0" layoutY="198.0" text="Gender" textFill="#3e7cee" GridPane.columnIndex="1" GridPane.rowIndex="4">
-               <font>
-                  <Font name="Arial Black" size="15.0" />
-               </font>
-            </Label>
-            <Label layoutX="10.0" layoutY="21.0" text="Immu Date" textFill="#3e7cee" GridPane.columnIndex="2">
-               <font>
-                  <Font name="Arial Black" size="15.0" />
-               </font>
-            </Label>
-            <Label layoutX="240.0" layoutY="21.0" text="Regis Date" textFill="#3e7cee" GridPane.columnIndex="2" GridPane.rowIndex="2">
-               <font>
-                  <Font name="Arial Black" size="15.0" />
-               </font>
-            </Label>
-            <Label layoutX="240.0" layoutY="110.0" text="Class No." textFill="#3e7cee" GridPane.columnIndex="2" GridPane.rowIndex="4">
-               <font>
-                  <Font name="Arial Black" size="15.0" />
-               </font>
-            </Label>
-            <Label layoutX="240.0" layoutY="198.0" text="Room No." textFill="#3e7cee" GridPane.columnIndex="3">
-               <font>
-                  <Font name="Arial Black" size="15.0" />
-               </font>
-            </Label>
-            <Label layoutX="355.0" layoutY="21.0" text="Teacher" textFill="#3e7cee" GridPane.columnIndex="3" GridPane.rowIndex="2">
-               <font>
-                  <Font name="Arial Black" size="15.0" />
-               </font>
-            </Label>
-            <DatePicker GridPane.columnIndex="2" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets right="30.0" />
-               </GridPane.margin>
-            </DatePicker>
-            <DatePicker GridPane.columnIndex="2" GridPane.rowIndex="3">
-               <GridPane.margin>
-                  <Insets right="30.0" />
-               </GridPane.margin>
-            </DatePicker>
-            <ComboBox prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-            <ComboBox prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <ComboBox prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <ComboBox layoutX="240.0" layoutY="242.0" prefHeight="23.0" prefWidth="87.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
       </GridPane>
       <HBox layoutX="340.0" layoutY="363.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="20.0">
          <children>
-            <Button layoutX="340.0" layoutY="363.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="60.0" text="Save" />
-            <Button layoutX="410.0" layoutY="363.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="60.0" text="Cancel" />
+            <Button layoutX="340.0" layoutY="363.0" mnemonicParsing="false" onAction="#handleSave" prefHeight="23.0" prefWidth="60.0" text="Save" />
+            <Button layoutX="410.0" layoutY="363.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="23.0" prefWidth="60.0" text="Cancel" />
          </children>
       </HBox>
    </children>
