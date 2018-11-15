@@ -18,6 +18,9 @@
                <font>
                   <Font name="Consolas Bold" size="25.0" />
                </font>
+               <effect>
+                  <Reflection />
+               </effect>
             </Label>
          </children>
       </Pane>

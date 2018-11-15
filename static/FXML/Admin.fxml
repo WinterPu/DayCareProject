@@ -54,7 +54,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <HBox prefHeight="50.0" prefWidth="600.0" spacing="300.0" VBox.vgrow="ALWAYS">
+      <HBox prefHeight="50.0" prefWidth="600.0" spacing="250.0" VBox.vgrow="ALWAYS">
          <children>
             <JFXButton fx:id="btnShowDetail" buttonType="RAISED" onAction="#handleDetail" prefHeight="50.0" prefWidth="250.0" ripplerFill="#0b0626" text="Show Detail" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
                <font>
