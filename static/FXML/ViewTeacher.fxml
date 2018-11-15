@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -20,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="550.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="neu.edu.csye6200.team.controller.ViewTeacherController">
+<VBox prefHeight="550.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="neu.edu.csye6200.team.controller.ViewTeacherController">
    <children>
       <HBox prefHeight="50.0" prefWidth="600.0">
          <children>
@@ -53,13 +48,16 @@
          <children>
             <Pane prefHeight="50.0" prefWidth="300.0">
                <children>
-                  <Label prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #1976D2;" text="Teacher Info" textAlignment="CENTER" textFill="WHITE">
+                  <Label prefHeight="50.0" prefWidth="300.0" text="Teacher Info" textAlignment="CENTER">
                      <font>
                         <Font name="Consolas Bold" size="20.0" />
                      </font>
                      <padding>
                         <Insets left="10.0" />
                      </padding>
+                     <effect>
+                        <Glow />
+                     </effect>
                   </Label>
                </children>
             </Pane>
