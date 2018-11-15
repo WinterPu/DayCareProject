@@ -61,7 +61,7 @@ public class Student extends Person implements Comparable<Student>{
 	}
 	@Override
 	public String toString() {
-		return stuId + "," + age + "," + fatherName + "," + motherName + "," + firstName + "," + lastName + "," + PropertiesReader.getSimpleDataFormat().format(registerTime) + "\n";
+		return stuId + "," + age + "," + fatherName + "," + motherName + "," + immunizations + "," + firstName + "," + lastName + "," + PropertiesReader.getSimpleDataFormat().format(registerTime) + "\n";
 	}
 
 	@Override
