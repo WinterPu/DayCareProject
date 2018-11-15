@@ -67,7 +67,8 @@ public class Classroom {
 				if(selectedStudents.size() <= Integer.parseInt(r.getGroupSize())) {
 					if(count < DataStore.getInstance().getTeachers().size()) {
 						DataStore.getInstance().getClassroomList().add(
-								new Classroom("Class "+(++count),r.getAgeRange(), r.getGroupSize(),selectedStudents, DataStore.getInstance().getTeachers().get(count-1)));
+								new Classroom("Class "+(++count),r.getAgeRange(), r.getGroupSize(),selectedStudents, 
+										DataStore.getInstance().getTeachers().get(count-1)));
 					}else {
 						teacherIsExcept = true;
 					}
@@ -96,7 +97,8 @@ public class Classroom {
 								}
 								if(count < DataStore.getInstance().getTeachers().size()) {
 									DataStore.getInstance().getClassroomList().add(
-											new Classroom("Class "+(++count),r.getAgeRange(), r.getGroupSize(),dividedStudents, DataStore.getInstance().getTeachers().get(count-1)));
+											new Classroom("Class "+(++count),r.getAgeRange(), r.getGroupSize(),dividedStudents, 
+													DataStore.getInstance().getTeachers().get(count-1)));
 								}else {
 									teacherIsExcept = true;
 								}
