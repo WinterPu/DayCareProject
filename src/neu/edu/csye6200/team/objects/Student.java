@@ -3,6 +3,8 @@ package neu.edu.csye6200.team.objects;
 import java.util.Date;
 import java.util.List;
 
+import neu.edu.csye6200.team.util.PropertiesReader;
+
 public class Student extends Person implements Comparable<Student>{
 
 	private int stuId;//primary key for student, automatically increased by 1, start from 100001, cannot be set manually
@@ -59,7 +61,7 @@ public class Student extends Person implements Comparable<Student>{
 	}
 	@Override
 	public String toString() {
-		return stuId + "," + firstName + "," + lastName + "," + age + "," + fatherName + "," + motherName + "\n";
+		return stuId + "," + PropertiesReader.getSimpleDataFormat().format(registerTime) + "," + firstName + "," + lastName + "," + age + "," + fatherName + "," + motherName + "\n";
 	}
 
 	@Override
@@ -67,5 +69,4 @@ public class Student extends Person implements Comparable<Student>{
 		// TODO Auto-generated method stub
 		return Integer.valueOf(stuId).compareTo(stu.stuId);
 	}
-	
 }
