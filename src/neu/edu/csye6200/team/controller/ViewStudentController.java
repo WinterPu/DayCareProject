@@ -80,12 +80,12 @@ public class ViewStudentController extends AbstractController implements Initial
 		String[] fields = strstudent.split(",");
 		String id = fields[0];
 		
-		String firname = fields[1];
-		String laname = fields[2];
-		String age = fields[3];
-		String father = fields[4];
-		String mother = fields[5];
-		String registime = fields[6];
+		String firname = fields[5];
+		String laname = fields[6];
+		String age = fields[1];
+		String father = fields[2];
+		String mother = fields[3];
+		String registime = fields[7];
 		
 		int idnum = Integer.parseInt(id);
 		int agenum = Integer.parseInt(age);
@@ -113,7 +113,7 @@ public class ViewStudentController extends AbstractController implements Initial
 		txtFather.setText(father);
 		txtMother.setText(mother);
 		txtRegister.setText(registime);
-		//txtClassroom.setText(room.getName());
+		txtClassroom.setText(room.getName());
 	}
 	
 	public void back(ActionEvent event) throws Exception {

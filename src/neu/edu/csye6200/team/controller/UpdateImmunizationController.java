@@ -211,8 +211,10 @@ public class UpdateImmunizationController extends AbstractController implements 
 			
 			for(Immunization imm : immList) {
 				int mid = imm.getImmuId();
-				if(mid == id) {
+				String mname = imm.getImmuName();
+				if((mid == id) || (mname.equals(name))) {
 					txtID.setText("");
+					txtName.setText("");
 					Alert error = new Alert(Alert.AlertType.ERROR,"                  This Immunization Has Already Exist");
 					error.setTitle("Feedback");
 					error.setHeaderText("   Check Result: ");
@@ -241,6 +243,17 @@ public class UpdateImmunizationController extends AbstractController implements 
 			txtName.setEditable(false);
 			txtDuration.setText("");
 			txtDuration.setEditable(false);
+			
+			Alert addComfir = new Alert(Alert.AlertType.INFORMATION,"Add New Immunization Record Successfully");
+			addComfir.setTitle("information"); 
+			addComfir.setHeaderText("Information");
+			Button infor = new Button("show Information");
+			addComfir.show();
+			infor.setOnAction((ActionEvent)->{
+		    addComfir.showAndWait();
+			}) ;
+			
+			background_controller.loadStudentUpdatePanel(student);
 		}
 		else {
 			Alert warning = new Alert(Alert.AlertType.WARNING,"Warning: Please select operation first");

@@ -48,7 +48,7 @@ public class StudentEnterController extends AbstractController implements Initia
 	}
 	
 	public void clear(ActionEvent event) {
-		txtID.setText(null);
+		txtID.setText("");
 	}
 	
 	public void update(ActionEvent event)  throws Exception{
