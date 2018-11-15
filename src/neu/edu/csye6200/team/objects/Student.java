@@ -3,6 +3,8 @@ package neu.edu.csye6200.team.objects;
 import java.util.Date;
 import java.util.List;
 
+import neu.edu.csye6200.team.util.PropertiesReader;
+
 public class Student extends Person implements Comparable<Student>{
 
 	private int stuId;//primary key for student, automatically increased by 1, start from 100001, cannot be set manually
@@ -12,12 +14,13 @@ public class Student extends Person implements Comparable<Student>{
 	private List<Immunization> immunizations;
 	public Student() {}
 	//This constructor should only be used for initialization
-	public Student(int stuId, String firstName, String lastName, int age) {
+	public Student(int stuId, String firstName, String lastName, int age, Date registerTime) {
 		super();
 		this.stuId = stuId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.age = age;
+		this.registerTime = registerTime;
 	}
 	//This is the basic constructor when creating a Student Object
 	public Student(String firstName, String lastName, int age) {
@@ -59,7 +62,12 @@ public class Student extends Person implements Comparable<Student>{
 	}
 	@Override
 	public String toString() {
-		return stuId + "," + firstName + "," + lastName + "," + age + "," + fatherName + "," + motherName + "\n";
+
+		
+		System.out.println(registerTime.toString());
+		//System.out.println(PropertiesReader.getSimpleDataFormat().parse("03-02-2934"));
+		return stuId + "," + firstName + "," + lastName + "," + age + "," + fatherName + "," + motherName + "," + 
+				PropertiesReader.getSimpleDataFormat().format(registerTime) + "\n";
 	}
 
 	@Override

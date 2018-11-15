@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="neu.edu.csye6200.team.controller.ControlPanelController">
+   <children>
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1976D2;" VBox.vgrow="ALWAYS">
+         <children>
+            <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" x="20.0">
+               <image>
+                  <Image url="@/resources/logo/Logo-Design.png" />
+               </image>
+            </ImageView>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </Pane>
+      <JFXButton fx:id="btnAdministrator" buttonType="RAISED" onAction="#showAdminView" prefHeight="100.0" prefWidth="200.0" text="Administrator" wrapText="true">
+         <effect>
+            <DropShadow spread="0.08" />
+         </effect>
+         <font>
+            <Font name="Consolas Bold" size="23.0" />
+         </font>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin></JFXButton>
+      <JFXButton fx:id="btnStudent" buttonType="RAISED" onAction="#showStudentView" prefHeight="100.0" prefWidth="200.0" text="Student" wrapText="true">
+         <effect>
+            <Glow level="1.0" />
+         </effect>
+         <font>
+            <Font name="Consolas Bold" size="23.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="btnTeacher" buttonType="RAISED" onAction="#showTeacherView" prefHeight="100.0" prefWidth="200.0" text="Teacher" wrapText="true">
+         <font>
+            <Font name="Consolas Bold" size="23.0" />
+         </font></JFXButton>
+      <JFXButton buttonType="RAISED" onAction="#Exit" prefHeight="100.0" prefWidth="200.0" text="Exit" wrapText="true">
+         <font>
+            <Font name="Consolas Bold" size="23.0" />
+         </font></JFXButton>
+   </children>
+</VBox>

@@ -23,6 +23,7 @@ public final class PropertiesReader {
 		return prop;
 	}
 	public static SimpleDateFormat getSimpleDataFormat() {
+		
 		return new SimpleDateFormat(prop.getProperty("dateFormat"));
 	}
 	public static String getFilePath(String fileType) {

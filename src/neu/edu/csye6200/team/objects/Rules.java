@@ -71,4 +71,17 @@ public class Rules {
         return ratio;
     }
 	
+	public void setMaxAge(String s) {
+		maxAge.set(s);;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Rules [minAge=" + minAge + ", maxAge=" + maxAge + ", ageRange=" + ageRange + ", groupSize=" + groupSize
+				+ ", ratio=" + ratio + ", maxGroup=" + maxGroup + "]";
+	}
+	
+	
 }
