@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
@@ -14,8 +20,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox prefHeight="550.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="neu.edu.csye6200.team.controller.ViewTeacherController">
+<VBox prefHeight="550.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="neu.edu.csye6200.team.controller.ViewTeacherController">
    <children>
       <HBox prefHeight="50.0" prefWidth="600.0">
          <children>
@@ -37,8 +42,8 @@
       <TableView fx:id="tchTable" prefHeight="200.0" prefWidth="600.0">
         <columns>
           <TableColumn fx:id="tchId" prefWidth="75.0" text="Teacher ID" />
-            <TableColumn prefWidth="75.0" text="Class No." />
-            <TableColumn prefWidth="75.0" text="Class Size" />
+            <TableColumn fx:id="tchClassNo" prefWidth="75.0" text="Class No." />
+            <TableColumn fx:id="tchClassSize" prefWidth="75.0" text="Class Size" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -119,7 +124,7 @@
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <Label text="Label" GridPane.columnIndex="3">
+                  <Label fx:id="classNoLabel" text="Label" GridPane.columnIndex="3">
                      <GridPane.margin>
                         <Insets left="50.0" />
                      </GridPane.margin>
@@ -127,7 +132,7 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Label text="Label" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                  <Label fx:id="classSizeLabel" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="50.0" />
                      </GridPane.margin>
@@ -153,12 +158,12 @@
                   </Label>
                </children>
             </GridPane>
-            <TableView prefHeight="200.0" prefWidth="600.0">
+            <TableView fx:id="stuTable" prefHeight="200.0" prefWidth="600.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="Class No." />
-                <TableColumn prefWidth="75.0" text="First Name" />
-                  <TableColumn prefWidth="75.0" text="Last Name" />
-                  <TableColumn prefWidth="75.0" text="Age" />
+                <TableColumn fx:id="stuClassNo" prefWidth="75.0" text="Class No." />
+                <TableColumn fx:id="stuFirstName" prefWidth="75.0" text="First Name" />
+                  <TableColumn fx:id="stuLastName" prefWidth="75.0" text="Last Name" />
+                  <TableColumn fx:id="stuAge" prefWidth="75.0" text="Age" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

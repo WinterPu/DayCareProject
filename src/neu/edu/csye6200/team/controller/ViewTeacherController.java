@@ -20,10 +20,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import neu.edu.csye6200.team.data.DataStore;
+import neu.edu.csye6200.team.objects.Classroom;
 import neu.edu.csye6200.team.objects.Student;
 import neu.edu.csye6200.team.objects.Teacher;
 
 public class ViewTeacherController extends AbstractController {
+	
+	private BackgroundPanelController background_controller;
 	
 	/**
 	 * Usage: Searching
@@ -40,10 +44,10 @@ public class ViewTeacherController extends AbstractController {
 	private TableView<Teacher> tchTable;
 	@FXML
 	private TableColumn<Teacher, Integer> tchId;
-//	@FXML
-//	private TableColumn<Teacher, Integer> tchClassNo;
-//	@FXML
-//	private TableColumn<Teacher, Integer> tchClassSize;
+	@FXML
+	private TableColumn<Teacher, String> tchClassNo;
+	@FXML
+	private TableColumn<Teacher, String> tchClassSize;
 	
 	/** 
 	 * Usage: Teacher details Showing
@@ -54,10 +58,10 @@ public class ViewTeacherController extends AbstractController {
 	private Label firstNameLabel;
 	@FXML
 	private Label lastNameLabel;
-//	@FXML
-//	private Label classNoLabel;
-//	@FXML
-//	private Label classSizeLabel;
+	@FXML
+	private Label classNoLabel;
+	@FXML
+	private Label classSizeLabel;
 	
 	@FXML
 	private TableView<Student> stuTable;
@@ -68,9 +72,11 @@ public class ViewTeacherController extends AbstractController {
 	@FXML
 	private TableColumn<Student, String> stuLastName;
 	@FXML
-	private TableColumn<Student, String> stuAge;
+	private TableColumn<Student, Integer> stuAge;
 	
 	private Main application;
+	private Classroom clazRoom = new Classroom();
+	private ObservableList<Classroom> cList = DataStore.getInstance().getClassroomList();
 	
 	public ViewTeacherController() {
 		
@@ -80,15 +86,57 @@ public class ViewTeacherController extends AbstractController {
 		if(t != null) {
 			firstNameLabel.setText(t.getFirstName());
 			lastNameLabel.setText(t.getLastName());
-//			genderLabel.setText(t.getGender());
-//			classNoLabel.setText(Integer.toString(t.getClassNo()));
-//			classSizeLabel.setText(Integer.toString(t.getClassSize()));
-//			contactInfoLabel.setText(t.getContactInfo());
+			for(Classroom cc : cList) {
+				if(cc.getTeacher() == t) {
+					classNoLabel.setText(cc.getName());
+					classSizeLabel.setText(cc.getSize());
+					break;
+				}
+			}
+			if(classNoLabel == null) classNoLabel.setText("");
+			if(classNoLabel == null) classSizeLabel.setText("");
+			
+			Classroom cr = findclassroom(t);
+			ObservableList<Student> sList = null;
+			if(cr != null) sList = FXCollections.observableArrayList(cr.getStudents());
+			stuTable.setItems(sList);
+			
+			stuClassNo.setCellValueFactory(cellData -> {
+				return strToStrProperty(cr.getName());
+			});
+			
+			stuFirstName.setCellValueFactory(cellData -> {
+				Student cellFeature = cellData.getValue();
+				return strToStrProperty(cellFeature.getFirstName());
+			});
+			
+			stuLastName.setCellValueFactory(cellData -> {
+				Student cellFeature = cellData.getValue();
+				return strToStrProperty(cellFeature.getLastName());
+			});
+		
+			stuAge.setCellValueFactory(cellData -> {
+				Student cellFeature = cellData.getValue();
+				return intToIntProperty(cellFeature.getAge());
+			});
+			
+			
 		}
+	}
+	
+	private Classroom findclassroom(Teacher t) {
+		if(t == null) return null;
+		
+		for(Classroom c : cList) {
+			if(c.getTeacher() == t) return c;
+		}
+		
+		return null;
 	}
 	
 	@FXML
 	private void initialize() {
+		clazRoom.arrange();
 		/**
 		 * Using DataManagement to get Teachers data
 		 */
@@ -96,24 +144,44 @@ public class ViewTeacherController extends AbstractController {
 			Teacher cellFeature = cellData.getValue();
 			return intToIntProperty(cellFeature.getTchId());
 		});
-//		tchGender.setCellValueFactory(cellData -> {
-//			Teacher cellFeature = cellData.getValue();
-//			return strToStrProperty(cellFeature.getGender());
-//		});
-//		tchClassNo.setCellValueFactory(cellData -> cellData.getValue().getClassNoProperty());
-//		tchClassSize.setCellValueFactory(cellData -> cellData.getValue().getClassSizeProperty());
+		
+		tchClassNo.setCellValueFactory(cellData -> {
+			Teacher cellFeature = cellData.getValue();
+			for(Classroom cc : cList) {
+				if(cc.getTeacher() == cellFeature) return strToStrProperty(cc.getName());
+			}
+			return strToStrProperty("");
+		});
+		
+		tchClassSize.setCellValueFactory(cellData -> {
+			Teacher cellFeature = cellData.getValue();
+			for(Classroom cc : cList) {
+				if(cc.getTeacher() == cellFeature) return strToStrProperty(cc.getSize());
+			}
+			return strToStrProperty("");
+		});
 		
 		showTeacherDetail(null);
 		
 		tchTable.getSelectionModel().selectedItemProperty().addListener(
-        		(observable, oldValue, newValue) -> showTeacherDetail(newValue));
+				(observable, oldValue, newValue) -> showTeacherDetail(newValue));
+		
+		/**
+		 * Using DataManagement to get Students data
+		 */
+		
+		stuTable.getSelectionModel().selectedItemProperty().addListener(
+				(observable, oldValue, newValue) -> updateStudentList(newValue));
 	}
 	
+	private void updateStudentList(Student s) {
+		return;
+	}
 	// Helper for setCellValueFactory function
 	private StringProperty strToStrProperty(String s) {
 		return new SimpleStringProperty(s);
 	}
-	
+		
 	// Helper for setCellValueFactory function
 	private ObjectProperty<Integer> intToIntProperty(int i) {
 		return new SimpleIntegerProperty(i).asObject();
@@ -129,12 +197,12 @@ public class ViewTeacherController extends AbstractController {
 		
 		// Handle blank field search
 		if(fieldTchId == null || fieldTchId.trim().isEmpty()) {
-			tchTable.setItems(application.getTeacherData());
+			tchTable.setItems(FXCollections.observableArrayList(DataStore.getInstance().getTeachers()));
 			return;
 		}
 		
 		try {
-			List<Teacher> list = application.getTeacherData();
+			List<Teacher> list = DataStore.getInstance().getTeachers();
 			List<Teacher> target = new ArrayList<>();
 			
 			for(Teacher t : list) {
@@ -159,14 +227,37 @@ public class ViewTeacherController extends AbstractController {
 		}	
 	}
 	
+	public void studentButton(ActionEvent event) throws Exception {
+		// TODO
+		// load ViewStudent.fxml
+		background_controller.loadStudent();
+	}
 	
+	public void teacherButton(ActionEvent event) throws Exception {
+		return;
+	}
+	
+	public void admButton(ActionEvent event) throws Exception {
+		background_controller.loadAdmin();
+	}
+	
+	@FXML
+	private void handlePrintButton() {
+		return;
+	}
+	
+	@FXML
+	private void handleBackButton() throws Exception {
+		// Return to the initial Scene
+		background_controller.loadAdmin();
+	}
 	
 	@Override
 	public void setApp(Main mainTestTeacher) {
-        this.application = mainTestTeacher;
-
+		this.application = mainTestTeacher;
         // Add observable list data to the table
-        tchTable.setItems(application.getTeacherData());
+        tchTable.setItems(FXCollections.observableArrayList(DataStore.getInstance().getTeachers()));
+        stuTable.setItems(FXCollections.observableArrayList(DataStore.getInstance().getStudents()));
     }
 	
 }

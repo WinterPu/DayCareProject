@@ -4,6 +4,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import neu.edu.csye6200.main.*;
+import neu.edu.csye6200.team.data.DataStore;
 import neu.edu.csye6200.team.objects.Rules;
 /**
  * Dialog to edit details of a person.
@@ -51,13 +52,7 @@ public class RegulationRulesController extends AbstractController{
     @Override
     public void setApp(Main main) {
         this.main = main;
-        main.getRuleDate().add(new Rules("6","12","4","4:1","3"));
-        main.getRuleDate().add(new Rules("13","24","5","5:1","3"));
-        main.getRuleDate().add(new Rules("25","35","6","6:1","3"));
-        main.getRuleDate().add(new Rules("36","47","8","8:1","3"));
-        main.getRuleDate().add(new Rules("48","59","12","12:1","2"));
-        main.getRuleDate().add(new Rules("60","on up","15","15:1","2"));
-        personTable.setItems(main.getRuleDate());
+        personTable.setItems(DataStore.getInstance().getRuleDate());
     }
     
     @FXML
