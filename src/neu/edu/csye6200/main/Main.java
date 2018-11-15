@@ -90,7 +90,7 @@ public class Main extends Application {
 		this.stage.setTitle("Administor");
 		AnchorPane pane = new AnchorPane();
 		AdminController controller = null;
-		loadPane("src/neu/edu/csye6200/team/controller/Admin.fxml",pane,controller);
+		loadPane("static/FXML/Admin.fxml",pane,controller);
 	}
 	
 	
@@ -115,7 +115,7 @@ public class Main extends Application {
 	
 	public void loadAddStudent(Classroom classroom) throws Exception {
 		FXMLLoader loader = new FXMLLoader();
-		FileInputStream fxmlStream = new FileInputStream("src/neu/edu/csye6200/team/controller/AddChild.fxml");
+		FileInputStream fxmlStream = new FileInputStream("static/FXML/AddChild.fxml");
         AnchorPane pane = (AnchorPane) loader.load(fxmlStream);
 
         Stage dialogStage = new Stage();
@@ -135,7 +135,7 @@ public class Main extends Application {
 	
 	public void loadAddTeacher() throws Exception {
 		FXMLLoader loader = new FXMLLoader();
-		FileInputStream fxmlStream = new FileInputStream("src/neu/edu/csye6200/team/controller/AddTeacher.fxml");
+		FileInputStream fxmlStream = new FileInputStream("static/FXML/AddTeacher.fxml");
         AnchorPane pane = (AnchorPane) loader.load(fxmlStream);
 
         Stage dialogStage = new Stage();
@@ -154,7 +154,7 @@ public class Main extends Application {
 	
 	public void loadClassroonInfo(Classroom classroom) throws Exception {
 		FXMLLoader loader = new FXMLLoader();
-		FileInputStream fxmlStream = new FileInputStream("src/neu/edu/csye6200/team/controller/Classroom Info.fxml");
+		FileInputStream fxmlStream = new FileInputStream("static/FXML/Classroom Info.fxml");
         AnchorPane pane = (AnchorPane) loader.load(fxmlStream);
 
         Stage dialogStage = new Stage();
@@ -167,7 +167,7 @@ public class Main extends Application {
         ClassroomInfoController controller = loader.getController();
         controller.setDialogStage(dialogStage);
         controller.setApp(this);
-        
+        controller.setClassroom(classroom);
         
         dialogStage.showAndWait();
 	}

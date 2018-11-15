@@ -1,6 +1,7 @@
 package neu.edu.csye6200.team.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.jfoenix.controls.JFXTextField;
@@ -25,6 +26,10 @@ public class AddStudentController extends AbstractController{
     private JFXTextField fName;
     @FXML
     private JFXTextField lName;
+    @FXML
+    private JFXTextField fatherName;
+    @FXML
+    private JFXTextField motherName;
     @FXML
     private JFXTextField age;
     
@@ -54,7 +59,9 @@ public class AddStudentController extends AbstractController{
     @FXML
     private void handleSave() throws Exception {
     	int studentId = DataStore.getInstance().getStudents().get(DataStore.getInstance().getStudents().size()-1).getStuId() + 1;
-    	DataStore.getInstance().getStudents().add(new Student(studentId, fName.getText(),lName.getText(),Integer.parseInt(age.getText())));
+    	DataStore.getInstance().getStudents().add(
+    			new Student(studentId, fName.getText(),lName.getText(),
+    					Integer.parseInt(age.getText()), new Date(), fatherName.getText(), motherName.getText()));
     	classroom.arrange();
     	if(classroom.teacherIsExcept()) {
     		DataStore.getInstance().getStudents().remove(DataStore.getInstance().getStudents().size()-1);

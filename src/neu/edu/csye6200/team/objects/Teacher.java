@@ -2,11 +2,10 @@ package neu.edu.csye6200.team.objects;
 
 import java.util.Date;
 
-import javafx.beans.property.StringProperty;
 import neu.edu.csye6200.team.util.PropertiesReader;
 
 public class Teacher extends Person implements Comparable<Teacher> {
-	
+
 	private int tchId;//automatically increased by 1, start at 1001
 	private boolean isIdle = true;//mark whether the teacher is ready for classes or not, true means can be arranged. If all teachers are not idle
 	private int stateLevel;//the level this teacher is available to teach. 1 means 6-12month, etc.
@@ -25,9 +24,11 @@ public class Teacher extends Person implements Comparable<Teacher> {
 		this.registerTime = registerTime;
 		this.stateLevel = stateLevel;
 	}
-	
 	public int getTchId() {
 		return tchId;
+	}
+	public void setTchId(int tchId) {
+		this.tchId = tchId;
 	}
 	public boolean isIdle() {
 		return isIdle;
@@ -43,12 +44,13 @@ public class Teacher extends Person implements Comparable<Teacher> {
 	}
 	@Override
 	public String toString() {
-		return ""+tchId;
+		return tchId + "," + isIdle + "," + stateLevel + "," + firstName + "," + lastName + "\n";
 	}
 	@Override
 	public int compareTo(Teacher tch) {
 		// TODO Auto-generated method stub
 		return Integer.valueOf(tchId).compareTo(tch.tchId);
 	}
+
 
 }

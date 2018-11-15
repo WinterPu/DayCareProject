@@ -12,7 +12,6 @@ import javafx.beans.property.StringProperty;
 import neu.edu.csye6200.team.data.DataStore;
 import neu.edu.csye6200.team.data.StudentDataManagement;
 import neu.edu.csye6200.team.interfaces.DataManagement;
-import neu.edu.csye6200.team.util.GenerateData;
 
 public class Classroom {
 	
@@ -38,7 +37,7 @@ public class Classroom {
 	}
 	
 	public void arrange() {
-		int count = 0;	
+		int count = 0;
 		classIsExcept = false;
 		teacherIsExcept = false;
 		DataStore.getInstance().getRuleDate().clear();
@@ -65,6 +64,11 @@ public class Classroom {
 					selectedStudents.add(s);
 				}
 			}
+			if(selectedStudents.size() == 0) {
+				
+			}else {
+				
+		
 			if(selectedStudents.size() <= Integer.parseInt(r.getGroupSize())) {
 //				DataStore.getInstance().getClassrooms().put(r.getMinAge(), 
 //						new Classroom("Class "+(++count),r.getAgeRange(), r.getGroupSize(),selectedStudents, DataStore.getInstance().getTeachers().get(count-1)));
@@ -89,7 +93,7 @@ public class Classroom {
 //								new Classroom("Class "+(++count),r.getAgeRange(), r.getGroupSize(),dividedStudents, DataStore.getInstance().getTeachers().get(count-1)));
 						if(count < DataStore.getInstance().getTeachers().size()) {
 							DataStore.getInstance().getClassroomList().add(
-									new Classroom("Class "+(++count),r.getAgeRange(), r.getGroupSize(),selectedStudents, DataStore.getInstance().getTeachers().get(count-1)));
+									new Classroom("Class "+(++count),r.getAgeRange(), r.getGroupSize(),dividedStudents, DataStore.getInstance().getTeachers().get(count-1)));
 						}else {
 							teacherIsExcept = true;
 						}
@@ -106,14 +110,15 @@ public class Classroom {
 //								new Classroom("Class "+(++count),r.getAgeRange(), r.getGroupSize(),dividedStudents, DataStore.getInstance().getTeachers().get(count-1)));
 						if(count < DataStore.getInstance().getTeachers().size()) {
 							DataStore.getInstance().getClassroomList().add(
-									new Classroom("Class "+(++count),r.getAgeRange(), r.getGroupSize(),selectedStudents, DataStore.getInstance().getTeachers().get(count-1)));
+									new Classroom("Class "+(++count),r.getAgeRange(), r.getGroupSize(),dividedStudents, DataStore.getInstance().getTeachers().get(count-1)));
 						}else {
 							teacherIsExcept = true;
 						}
 					}
 					classIsExcept = true;
 					exceptRange = r.getAgeRange();
-				}
+				}	
+			}
 			}
 		}
 		//System.out.println(DataStore.getInstance().getStudents());

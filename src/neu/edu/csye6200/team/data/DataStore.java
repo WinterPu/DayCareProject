@@ -11,7 +11,6 @@ import neu.edu.csye6200.team.objects.Classroom;
 import neu.edu.csye6200.team.objects.Rules;
 import neu.edu.csye6200.team.objects.Student;
 import neu.edu.csye6200.team.objects.Teacher;
-import neu.edu.csye6200.team.util.GenerateData;
 
 
 public class DataStore {
@@ -26,22 +25,22 @@ public class DataStore {
 	
 	private DataStore() {
 		students = new StudentDataManagement().getDataList();
+		teachers = new TeacherDataManagement().getDataList();
 		classrooms = new HashMap<>();
 		ruleDate = FXCollections.observableArrayList();
 		classroomList = FXCollections.observableArrayList();
-		generateTeachers();
 	}
 	
-	private void generateTeachers() {
-		teachers = new ArrayList<>();
-		try { 
-			GenerateData reader = new GenerateData("static/teacher.csv");
-			String[] teacherRow;
-			while((teacherRow = reader.getNextRow()) != null) {
-				teachers.add(new Teacher(Integer.parseInt(teacherRow[0]),teacherRow[1],teacherRow[2]));
-			}
-		}catch(Exception e) {}
-	}
+//	private void generateTeachers() {
+//		teachers = new ArrayList<>();
+//		try { 
+//			GenerateData reader = new GenerateData("static/teacher.csv");
+//			String[] teacherRow;
+//			while((teacherRow = reader.getNextRow()) != null) {
+//				teachers.add(new Teacher(Integer.parseInt(teacherRow[0]),teacherRow[1],teacherRow[2]));
+//			}
+//		}catch(Exception e) {}
+//	}
 	
 	public static DataStore getInstance() {
 		if(dataStore == null)

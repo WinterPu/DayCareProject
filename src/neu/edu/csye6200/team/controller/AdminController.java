@@ -10,8 +10,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
 import neu.edu.csye6200.main.*;
 import neu.edu.csye6200.team.data.DataStore;
+import neu.edu.csye6200.team.data.StudentDataManagement;
 import neu.edu.csye6200.team.objects.Classroom;
 import neu.edu.csye6200.team.objects.Rules;
+import neu.edu.csye6200.team.objects.Student;
 
 public class AdminController extends AbstractController {
 	
@@ -78,5 +80,18 @@ public class AdminController extends AbstractController {
 
             alert.showAndWait();
         }
+    }
+    
+    @FXML
+    private void handleAfter() {
+        for(Student s : DataStore.getInstance().getStudents()) {
+        	s.setAge(s.getAge()+6);
+        }
+        new StudentDataManagement().refreshAll(DataStore.getInstance().getStudents());
+        classroom.arrange();
+    	classNumColumn.setCellValueFactory(cell -> cell.getValue().nameProperty());
+    	classSizeColumn.setCellValueFactory(cell -> cell.getValue().sizeProperty());
+    	studentAgeColumn.setCellValueFactory(cell -> cell.getValue().ageRangeProperty());
+    	teacherName.setCellValueFactory(cell -> cell.getValue().teacherNameProperty());
     }
 }

@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.stage.Stage;
 import neu.edu.csye6200.main.Main;
 import neu.edu.csye6200.team.data.DataStore;
+import neu.edu.csye6200.team.data.TeacherDataManagement;
 import neu.edu.csye6200.team.objects.Teacher;
 
 public class AddTeacherController extends AbstractController{
@@ -36,6 +37,7 @@ public class AddTeacherController extends AbstractController{
     private void handleSave() {
     	int tcId = DataStore.getInstance().getTeachers().get(DataStore.getInstance().getTeachers().size()-1).getTchId() + 1;
     	DataStore.getInstance().getTeachers().add(new Teacher(tcId, fName.getText(), lName.getText()));
+    	new TeacherDataManagement().refreshAll(DataStore.getInstance().getTeachers());
         dialogStage.close();
     }
 }
