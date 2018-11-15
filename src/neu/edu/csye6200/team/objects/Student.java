@@ -29,7 +29,7 @@ public class Student extends Person implements Comparable<Student>{
 		this.lastName = lastName;
 		this.age = age;
 	}
-	
+
 	public int getStuId() {
 		return stuId;
 	}
@@ -63,10 +63,10 @@ public class Student extends Person implements Comparable<Student>{
 	@Override
 	public String toString() {
 
-		
+
 		System.out.println(registerTime.toString());
 		//System.out.println(PropertiesReader.getSimpleDataFormat().parse("03-02-2934"));
-		return stuId + "," + firstName + "," + lastName + "," + age + "," + fatherName + "," + motherName + "," + 
+		return stuId + "," + firstName + "," + lastName + "," + age + "," + fatherName + "," + motherName + "," +
 				PropertiesReader.getSimpleDataFormat().format(registerTime) + "\n";
 	}
 
@@ -75,5 +75,4 @@ public class Student extends Person implements Comparable<Student>{
 		// TODO Auto-generated method stub
 		return Integer.valueOf(stuId).compareTo(stu.stuId);
 	}
-	
 }
