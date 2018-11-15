@@ -50,7 +50,6 @@ public class Classroom {
 		
         
         DataStore.getInstance().getClassroomList().clear();
-        DataStore.getInstance().getClassrooms().clear();
         
 		for(Rules r : DataStore.getInstance().getRuleDate()) {
 			List<Student> selectedStudents = new ArrayList<>();
@@ -64,66 +63,52 @@ public class Classroom {
 					selectedStudents.add(s);
 				}
 			}
-			if(selectedStudents.size() == 0) {
-				
-			}else {
-				
-		
-			if(selectedStudents.size() <= Integer.parseInt(r.getGroupSize())) {
-//				DataStore.getInstance().getClassrooms().put(r.getMinAge(), 
-//						new Classroom("Class "+(++count),r.getAgeRange(), r.getGroupSize(),selectedStudents, DataStore.getInstance().getTeachers().get(count-1)));
-				if(count < DataStore.getInstance().getTeachers().size()) {
-					DataStore.getInstance().getClassroomList().add(
-							new Classroom("Class "+(++count),r.getAgeRange(), r.getGroupSize(),selectedStudents, DataStore.getInstance().getTeachers().get(count-1)));
+			if(selectedStudents.size() != 0) {
+				if(selectedStudents.size() <= Integer.parseInt(r.getGroupSize())) {
+					if(count < DataStore.getInstance().getTeachers().size()) {
+						DataStore.getInstance().getClassroomList().add(
+								new Classroom("Class "+(++count),r.getAgeRange(), r.getGroupSize(),selectedStudents, DataStore.getInstance().getTeachers().get(count-1)));
+					}else {
+						teacherIsExcept = true;
+					}
 				}else {
-					teacherIsExcept = true;
+					if(count < DataStore.getInstance().getTeachers().size()) {
+						int classroomCount = (int)Math.ceil((double)selectedStudents.size() / Integer.parseInt(r.getGroupSize()));
+						if(classroomCount <= Integer.parseInt(r.getMaxGroup())) {
+							for(int i = 0 ; i < classroomCount ; i++ ) {
+								List<Student> dividedStudents = new ArrayList<>();
+								for(int j = 0 ; j < Integer.parseInt(r.getGroupSize()) ; j++) {
+									if((i*4+j) < selectedStudents.size()) {
+										dividedStudents.add(selectedStudents.get(i*4+j));
+									}
+								}
+								DataStore.getInstance().getClassroomList().add(
+										new Classroom("Class "+(++count),r.getAgeRange(), r.getGroupSize(),dividedStudents, 
+												DataStore.getInstance().getTeachers().get(count-1)));
+							}
+						}else {
+							for(int i = 0 ; i < Integer.parseInt(r.getMaxGroup()) ; i++ ) {
+								List<Student> dividedStudents = new ArrayList<>();
+								for(int j = 0 ; j < Integer.parseInt(r.getGroupSize()) ; j++) {
+									if((i*4+j) < selectedStudents.size()) {
+										dividedStudents.add(selectedStudents.get(i*4+j));
+									}
+								}
+								if(count < DataStore.getInstance().getTeachers().size()) {
+									DataStore.getInstance().getClassroomList().add(
+											new Classroom("Class "+(++count),r.getAgeRange(), r.getGroupSize(),dividedStudents, DataStore.getInstance().getTeachers().get(count-1)));
+								}else {
+									teacherIsExcept = true;
+								}
+							}
+							classIsExcept = true;
+							exceptRange = r.getAgeRange();
+						}	
+					}else {
+						teacherIsExcept = true;
+					}
 				}
-				
-			}else {
-				int classroomCount = (int)Math.ceil((double)selectedStudents.size() / Integer.parseInt(r.getGroupSize()));
-				if(classroomCount <= Integer.parseInt(r.getMaxGroup())) {
-					for(int i = 0 ; i < classroomCount ; i++ ) {
-						List<Student> dividedStudents = new ArrayList<>();
-						for(int j = 0 ; j < Integer.parseInt(r.getGroupSize()) ; j++) {
-							if((i*4+j) < selectedStudents.size()) {
-								dividedStudents.add(selectedStudents.get(i*4+j));
-							}
-						}
-//						DataStore.getInstance().getClassrooms().put(r.getMinAge()+(i+1), 
-//								new Classroom("Class "+(++count),r.getAgeRange(), r.getGroupSize(),dividedStudents, DataStore.getInstance().getTeachers().get(count-1)));
-						if(count < DataStore.getInstance().getTeachers().size()) {
-							DataStore.getInstance().getClassroomList().add(
-									new Classroom("Class "+(++count),r.getAgeRange(), r.getGroupSize(),dividedStudents, DataStore.getInstance().getTeachers().get(count-1)));
-						}else {
-							teacherIsExcept = true;
-						}
-					}
-				}else {
-					for(int i = 0 ; i < Integer.parseInt(r.getMaxGroup()) ; i++ ) {
-						List<Student> dividedStudents = new ArrayList<>();
-						for(int j = 0 ; j < Integer.parseInt(r.getGroupSize()) ; j++) {
-							if((i*4+j) < selectedStudents.size()) {
-								dividedStudents.add(selectedStudents.get(i*4+j));
-							}
-						}
-//						DataStore.getInstance().getClassrooms().put(r.getMinAge()+(i+1), 
-//								new Classroom("Class "+(++count),r.getAgeRange(), r.getGroupSize(),dividedStudents, DataStore.getInstance().getTeachers().get(count-1)));
-						if(count < DataStore.getInstance().getTeachers().size()) {
-							DataStore.getInstance().getClassroomList().add(
-									new Classroom("Class "+(++count),r.getAgeRange(), r.getGroupSize(),dividedStudents, DataStore.getInstance().getTeachers().get(count-1)));
-						}else {
-							teacherIsExcept = true;
-						}
-					}
-					classIsExcept = true;
-					exceptRange = r.getAgeRange();
-				}	
 			}
-			}
-		}
-		//System.out.println(DataStore.getInstance().getStudents());
-		for(Classroom c : DataStore.getInstance().getClassrooms().values()) {
-			System.out.println(c);
 		}
 	}
 

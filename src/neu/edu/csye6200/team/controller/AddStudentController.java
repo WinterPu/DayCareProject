@@ -80,6 +80,7 @@ public class AddStudentController extends AbstractController{
         	classroom.arrange();
         	if(classroom.teacherIsExcept()) {
         		DataStore.getInstance().getStudents().remove(DataStore.getInstance().getStudents().size()-1);
+        		classroom.arrange();
     			Alert alert = new Alert(AlertType.WARNING);
                 alert.initOwner(main.getStage());
                 alert.setTitle("Warning");
@@ -89,6 +90,7 @@ public class AddStudentController extends AbstractController{
         	}
         	if(classroom.classIsExcept()) {
         			DataStore.getInstance().getStudents().remove(DataStore.getInstance().getStudents().size()-1);
+        			classroom.arrange();
         			Alert alert = new Alert(AlertType.WARNING);
                     alert.initOwner(main.getStage());
                     alert.setTitle("Warning");
