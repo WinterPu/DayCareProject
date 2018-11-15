@@ -14,12 +14,13 @@ public class Student extends Person implements Comparable<Student>{
 	private List<Immunization> immunizations;
 	public Student() {}
 	//This constructor should only be used for initialization
-	public Student(int stuId, String firstName, String lastName, int age) {
+	public Student(int stuId, String firstName, String lastName, int age, Date registerTime) {
 		super();
 		this.stuId = stuId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.age = age;
+		this.registerTime = registerTime;
 	}
 	//This is the basic constructor when creating a Student Object
 	public Student(String firstName, String lastName, int age) {
@@ -28,7 +29,7 @@ public class Student extends Person implements Comparable<Student>{
 		this.lastName = lastName;
 		this.age = age;
 	}
-	
+
 	public int getStuId() {
 		return stuId;
 	}
