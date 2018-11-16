@@ -1,7 +1,11 @@
 package neu.edu.csye6200.team.controller;
 
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -118,12 +122,45 @@ public class AdminController extends AbstractController implements Initializable
             alert.showAndWait();
         }
     }
-
+    //15634800000L
     @FXML
     private void handleAfter() {
-        for(Student s : DataStore.getInstance().getStudents()) {
+//    	try(
+//    			FileWriter fw = new FileWriter("Static/Demo.csv");
+//    			BufferedWriter bw = new BufferedWriter(fw);){
+//    			bw.write(new Date().toString());
+//    			bw.flush();
+//    		}catch(Exception e) {
+//    			e.printStackTrace();
+//    		}
+    	String recentTimeStr;
+    	Date recentTime = new Date();
+    	try(	FileReader fr = new FileReader("Static/Demo.csv");
+				BufferedReader in = new BufferedReader(fr);
+				){
+    			recentTimeStr = in.readLine();
+    			recentTime.setTime(Date.parse(recentTimeStr));
+				in.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+    	recentTime.setMonth(recentTime.getMonth() + 6);
+    	try(
+    			FileWriter fw = new FileWriter("Static/Demo.csv");
+    			BufferedWriter bw = new BufferedWriter(fw);){
+    			bw.write(recentTime.toString());
+    			bw.flush();
+    		}catch(Exception e) {
+    			e.printStackTrace();
+    		}
+    	List<Student> selectedStudents = new ArrayList<>();
+    	for(Student s : DataStore.getInstance().getStudents()) {
         	s.setAge(s.getAge()+6);
+        	if(s.getRegisterTime().getTime() +  15634800000L*6 > recentTime.getTime()) {
+        		selectedStudents.add(s);
+        	}
         }
+    	DataStore.getInstance().setStudents(selectedStudents);
         new StudentDataManagement().refreshAll(DataStore.getInstance().getStudents());
         classroom.arrange();
     	classNumColumn.setCellValueFactory(cell -> cell.getValue().nameProperty());
