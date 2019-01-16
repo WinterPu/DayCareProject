@@ -3,6 +3,8 @@ package neu.edu.csye6200.team.controller;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import com.jfoenix.controls.JFXTextField;
 
@@ -58,12 +60,21 @@ public class AddStudentController extends AbstractController{
     
     @FXML
     private void handleSave() throws Exception {
-    	if(fName.getText().isEmpty()||lName.getText().isEmpty()||age.getText().isEmpty()||fatherName.getText().isEmpty()||motherName.getText().isEmpty()) {
+    	if(fName.getText().isEmpty()||lName.getText().isEmpty()||age.getText().isEmpty()||
+    			fatherName.getText().isEmpty()||motherName.getText().isEmpty()) {
     		Alert alert = new Alert(AlertType.WARNING);
             alert.initOwner(main.getStage());
             alert.setTitle("Warning");
             alert.setHeaderText("The Information is Incomplete");
             alert.setContentText("Please fill in the blank");
+            alert.showAndWait();
+    	}else if(!(typeIsRight(fName.getText())&&typeIsRight(lName.getText())&&
+    			typeIsRight(fatherName.getText())&&typeIsRight(motherName.getText()))){
+    		Alert alert = new Alert(AlertType.WARNING);
+            alert.initOwner(main.getStage());
+            alert.setTitle("Warning");
+            alert.setHeaderText("Wrong Format");
+            alert.setContentText("You can only enter letters for name");
             alert.showAndWait();
     	}else if(!isInt(age.getText())){
     		Alert alert = new Alert(AlertType.WARNING);
@@ -72,7 +83,14 @@ public class AddStudentController extends AbstractController{
             alert.setHeaderText("Wrong Format");
             alert.setContentText("please enter a valid age");
             alert.showAndWait();
-    	}else {
+    	}else if(Integer.parseInt(age.getText())<6){
+    		Alert alert = new Alert(AlertType.WARNING);
+            alert.initOwner(main.getStage());
+            alert.setTitle("Warning");
+            alert.setHeaderText("Valid Age");
+            alert.setContentText("Only accept students over 6 years old");
+            alert.showAndWait();
+    	}else{
     		int studentId = DataStore.getInstance().getStudents().get(DataStore.getInstance().getStudents().size()-1).getStuId() + 1;
         	DataStore.getInstance().getStudents().add(
         			new Student(studentId, fName.getText(),lName.getText(),
@@ -89,14 +107,14 @@ public class AddStudentController extends AbstractController{
                 alert.showAndWait();
         	}
         	if(classroom.classIsExcept()) {
-        			DataStore.getInstance().getStudents().remove(DataStore.getInstance().getStudents().size()-1);
-        			classroom.arrange();
-        			Alert alert = new Alert(AlertType.WARNING);
-                    alert.initOwner(main.getStage());
-                    alert.setTitle("Warning");
-                    alert.setHeaderText("The Clss Is Full");
-                    alert.setContentText("Can not add student whoes age is between "+classroom.getExceptRange()+" any more");
-                    alert.showAndWait();
+        		DataStore.getInstance().getStudents().remove(DataStore.getInstance().getStudents().size()-1);
+    			classroom.arrange();
+    			Alert alert = new Alert(AlertType.WARNING);
+                alert.initOwner(main.getStage());
+                alert.setTitle("Warning");
+                alert.setHeaderText("The Clss Is Full");
+                alert.setContentText("Can not add student whoes age is between "+classroom.getExceptRange()+" any more");
+                alert.showAndWait();
         	}
         	//dialogStage.close();
         	new StudentDataManagement().refreshAll(DataStore.getInstance().getStudents());
@@ -110,5 +128,11 @@ public class AddStudentController extends AbstractController{
         }catch(NumberFormatException e){
             return false;
         }
+    }
+    
+    public boolean typeIsRight(String s) {
+    	Pattern p = Pattern.compile("[A-Za-z]{1,}");
+        Matcher m = p.matcher(s);
+    	return m.matches();
     }
 }
